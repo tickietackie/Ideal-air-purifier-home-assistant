@@ -1,0 +1,9 @@
+{
+  "domain": "idealpro",
+  "name": "Ideal Pro",
+  "version": "1.0.0",
+  "documentation": "",
+  "requirements": [],
+  "codeowners": [],
+  "config_flow": true
+}
