@@ -68,42 +68,45 @@ class IdealProAPI:
     def parse_status(self, raw: str) -> Dict:
         """
         Parse a status string like:
-        {A1,FR,C00000,S1,KI,L9,D1410,V0261,R0261,N00000,...}
-        Return a dict with at least 'power' plus raw tokens.
+        {A1,FR,C00000,S1,KI,L9,D1410,V0261,R0261,N00000,...,HD4N1,...}
 
-        If multiple {...} blocks are present in `raw`, use the last one
-        (this covers handshake + toggle returning two blocks).
+        Returns:
+            {
+              "raw": "...",         # original text
+              "power": "on"/"off"/"unknown",
+              "led_level": int(0–9), # brightness parsed from HDx...
+              "body": "...",         # most recent {...} block
+              ... other parsed tokens ...
+            }
         """
+
         _LOGGER.debug("Start parsing status: %r", raw)
-        out = {"raw": raw, "power": "unknown"}
+        out: Dict[str, any] = {"raw": raw, "power": "unknown"}
+
         if not raw:
-            _LOGGER.error("Rar input is missing, failed to parse current status.",)
+            _LOGGER.error("Raw input missing, cannot parse status.")
             return out
 
-        # prefer the last matched {...} block if there are several
+        # Prefer last { ... } block if multiple responses arrived at once
         matches = STATUS_RE.findall(raw)
-        if matches:
-            body = matches[-1]
-        else:
-            # maybe raw already is the body without braces
-            body = raw.strip("{}")
+        body = matches[-1] if matches else raw.strip("{}")
 
+        # Split into tokens
         tokens = [t.strip() for t in body.split(",") if t.strip()]
         if not tokens:
             return out
 
-        # first token is A1 or A- (power)
+        # Determine power
         first = tokens[0]
-        if first.startswith("A1") or first.startswith("A2"):
+        if first.startswith(("A1", "A2")):
             out["power"] = "on"
-        elif first.startswith("A-") or first.startswith("A0"):
+        elif first.startswith(("A-", "A0")):
             out["power"] = "off"
         else:
             out["power"] = "unknown"
+        _LOGGER.debug("Parsed power=%s", out["power"])
 
-        _LOGGER.debug("Parsed status: %s", out["power"])
-
-        # parse remaining tokens into key->value where possible
+        # Tokenize everything into key->value
         for token in tokens[1:]:
             m = re.match(r"([A-Z]+)(.*)", token)
             if m:
@@ -112,6 +115,43 @@ class IdealProAPI:
             else:
                 out.setdefault("misc", []).append(token)
 
-        # expose the parsed body for convenience
+        # Detect LED brightness from HDx... (only first digits after HD)
+        hd_token = next((t for t in tokens if t.startswith("HD")), None)
+        if hd_token:
+            m = re.match(r"HD(\d+)", hd_token)
+            if m:
+                out["led_level"] = int(m.group(1))
+                _LOGGER.debug("Detected LED level: %s", out["led_level"])
+
         out["body"] = body
         return out
+
+    
+    async def async_set_brightness(self, level: int):
+        """
+        Set LED brightness level (0–9).
+        The device expects the command in the form 'D0'...'D9'.
+        """
+        if not 0 <= level <= 9:
+            raise ValueError(f"Brightness level must be 0–9, got {level}")
+
+        try:
+            reader, writer = await asyncio.open_connection(self.host, self.port)
+        except Exception as err:
+            _LOGGER.debug("connect error for brightness: %s", err)
+            raise
+
+        try:
+            writer.write(b"GD")
+            await writer.drain()
+            await asyncio.sleep(0.2)
+            cmd = f"D{level}".encode()
+            _LOGGER.debug("Sending brightness command: %s", cmd)
+            writer.write(cmd)
+            await writer.drain()
+        finally:
+            try:
+                writer.close()
+                await writer.wait_closed()
+            except Exception:
+                pass

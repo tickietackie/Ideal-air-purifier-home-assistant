@@ -4,8 +4,9 @@ This repository contains a custom Home Assistant integration for Ideal Pro devic
 
 ## Features
 
-*   **Power Control**: Turn the Ideal Pro device on or off.
+*   **Power Control**: Turn the Ideal Pro device on or off in automatic mode.
 *   **Status Monitoring**: Retrieve the current power status (on/off) and other operational parameters from the device.
+*   **Set LED brightness**: Turn the LED off/on and set the brightness value between 1 and 9. 
 *   **Easy Setup**: Configurable via Home Assistant's UI.
 
 ## Supported Devices
