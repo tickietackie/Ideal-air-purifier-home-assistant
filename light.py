@@ -86,7 +86,7 @@ class IdealProLight(LightEntity):
         self._coordinator.data["led_level"] = level
         self.async_write_ha_state()
 
-        await asyncio.sleep(0.3)
+        await asyncio.sleep(0.5)
         await self._coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
@@ -102,7 +102,7 @@ class IdealProLight(LightEntity):
         self._coordinator.data["led_level"] = 0
         self.async_write_ha_state()
 
-        await asyncio.sleep(0.3)
+        await asyncio.sleep(0.5)
         await self._coordinator.async_request_refresh()
 
     async def async_update(self):

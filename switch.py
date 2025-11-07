@@ -33,7 +33,7 @@ class IdealProSwitch(SwitchEntity):
         self._coordinator.data["power"] = "on"
         self.async_write_ha_state()
 
-        await asyncio.sleep(0.3)
+        await asyncio.sleep(0.5)
         # request a coordinator refresh so UI updates from real state
         _LOGGER.debug("Requesting coordinator refresh so UI updates from real state")
         await self._coordinator.async_request_refresh()
@@ -48,7 +48,7 @@ class IdealProSwitch(SwitchEntity):
         self._coordinator.data["power"] = "off"
         self.async_write_ha_state()
 
-        await asyncio.sleep(0.3)
+        await asyncio.sleep(0.5)
         # request a coordinator refresh so UI updates from real state
         _LOGGER.debug("Requesting coordinator refresh so UI updates from real state")
         await self._coordinator.async_request_refresh()
