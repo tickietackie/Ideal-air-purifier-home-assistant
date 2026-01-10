@@ -36,7 +36,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
 class IdealProFan(CoordinatorEntity, FanEntity):
     """Representation of the Ideal Pro air purifier fan with preset modes."""
 
-    _attr_supported_features = FanEntityFeature.PRESET_MODE
+    _attr_supported_features = FanEntityFeature.PRESET_MODE | FanEntityFeature.TURN_ON | FanEntityFeature.TURN_OFF
     _attr_preset_modes = PRESET_MODES
     _attr_name = "Ideal Pro Fan"
     _attr_icon = "mdi:fan"
@@ -81,13 +81,30 @@ class IdealProFan(CoordinatorEntity, FanEntity):
         """Turn on the fan. If preset_mode provided, set that mode."""
         if preset_mode:
             await self.async_set_preset_mode(preset_mode)
-        else:
-            # Default to auto mode when turning on
-            await self.async_set_preset_mode(PRESET_AUTO)
+            return
+            
+        # Just turn on the power
+        _LOGGER.debug("Turning fan on")
+        success = await self._api.async_turn_on()
+        if success:
+            if self.coordinator.data:
+                self.coordinator.data["power"] = "on"
+            self.async_write_ha_state()
+            
+        await asyncio.sleep(0.3)
+        await self.coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
-        """Turn off the fan by setting it to quiet mode."""
-        await self.async_set_preset_mode(PRESET_QUIET)
+        """Turn off the fan."""
+        _LOGGER.debug("Turning fan off")
+        success = await self._api.async_turn_off()
+        if success:
+            if self.coordinator.data:
+                self.coordinator.data["power"] = "off"
+            self.async_write_ha_state()
+            
+        await asyncio.sleep(0.3)
+        await self.coordinator.async_request_refresh()
 
     async def async_set_preset_mode(self, preset_mode: str):
         """Set the fan preset mode."""
