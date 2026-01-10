@@ -4,9 +4,13 @@ This repository contains a custom Home Assistant integration for Ideal Pro devic
 
 ## Features
 
-*   **Power Control**: Turn the Ideal Pro device on or off in automatic mode.
-*   **Status Monitoring**: Retrieve the current power status (on/off) and other operational parameters from the device.
-*   **Set LED brightness**: Turn the LED off/on and set the brightness value between 1 and 9. 
+*   **Smart Fan Control**: Control fan speed with presets: `Quiet`, `Auto`, `Speed 1`, `Speed 2`, `Speed 3`, and `Turbo`.
+*   **Power Control**: Turn the device on or off. The integration automatically handles device state toggling.
+*   **Robust State Synchronization**:
+    *   **Auto-Polling**: Automatically updates device state in Home Assistant every 30 seconds.
+    *   **State Recovery**: If the device is unplugged or loses power, Home Assistant will correctly mark it as `Unavailable` and recover connection automatically when it returns.
+    *   **Verification**: Commands (like changing speed) are verified by checking the device's response, ensuring the action actually happened.
+*   **LED Control**: Turn the LED off/on and set brightness (via automated scripts or potentially exposed entities).
 *   **Easy Setup**: Configurable via Home Assistant's UI.
 
 ## Supported Devices
@@ -20,7 +24,14 @@ To install this integration, follow these steps:
 1.  **Manual Installation**:
     *   Create a folder named `ideal_pro` inside your Home Assistant `custom_components` directory.
         *   The `custom_components` directory is typically located at `/config/custom_components/`. If it doesn't exist, create it.
-    *   Copy all files from the `Ideal-Pro-Home-Assistant` repository (specifically `api.py`, `__init__.py`, `config_flow.py`, `const.py`, `switch.py`) into the newly created `/config/custom_components/ideal_pro/` folder.
+    *   Copy all files from the `Ideal-Pro-Home-Assistant` repository into the newly created `/config/custom_components/ideal_pro/` folder:
+        *   `__init__.py`
+        *   `api.py`
+        *   `config_flow.py`
+        *   `const.py`
+        *   `fan.py`
+        *   `switch.py`
+        *   `manifest.json` (if present)
     *   The final structure should look like:
         ```
         <homeassistant_config_dir>/
@@ -30,6 +41,7 @@ To install this integration, follow these steps:
                 ├── api.py
                 ├── config_flow.py
                 ├── const.py
+                ├── fan.py
                 └── switch.py
         ```
 
@@ -44,123 +56,96 @@ To install this integration, follow these steps:
 
 ## Usage
 
-Once configured, a new `switch` entity will appear in your Home Assistant instance (e.g., `switch.ideal_pro`). You can use this entity to:
+Once configured, the following entities will appear in your Home Assistant instance (e.g., `ideal_pro`):
 
-*   Turn your Ideal Pro device **on** or **off**.
-*   View the current **power status** of the device.
+*   **Fan Entity** (`fan.ideal_pro_fan`):
+    *   Turn on/off.
+    *   Set preset modes: `Auto`, `Quiet`, `Turbo`, `Speed 1-3`.
+*   **Switch Entity** (`switch.ideal_pro`):
+    *   Simple on/off toggle for the main power.
+
+**Note:** If you change the device settings externally (e.g., via the physical remote or another app), Home Assistant will update its state within 30 seconds.
 
 ## For Developers / Standalone Usage
 
-The `api.py` file provides the core asynchronous API for interacting with Ideal Pro devices.
+The `test/` directory contains useful scripts for testing device connectivity and API behavior without needing a full Home Assistant installation.
 
-### `IdealProAPI` Class
+### Testing Tools
 
-*   `__init__(self, host: str, port: int = 8899)`: Initializes the API client with the device's host and port.
-*   `async_handshake_and_read(self, timeout: float = 2.0) -> Optional[str]`: Connects to the device, sends a "GD" handshake command, and attempts to read a status block within the specified timeout.
-*   `async_toggle(self)`: Sends the "GD" handshake followed by the "ON" command to toggle the device's power state. Note that "ON" acts as a toggle for these devices.
-*   `parse_status(self, raw: str) -> Dict`: Parses a raw status string received from the device (e.g., `{A1,FR,C00000,...}`) into a dictionary, extracting the power state (`"on"` or `"off"`) and other key-value pairs.
+1.  **Fan Control Test** (`test/test_fan.py`):
+    *   Interactive tool to test all fan speeds and read status.
+    *   Run: `python3 test/test_fan.py` for an interactive menu.
+    *   Run: `python3 test/test_fan.py status` to see just the current status.
 
-### Example Standalone Script
+2.  **Power Control Test** (`test/test_power.py`):
+    *   Tests reliable power toggling with verification.
+    *   Run: `python3 test/test_power.py` for interactve menu.
 
-The `test_ideal_pro_on_off.py` script demonstrates how to interact with an Ideal Pro device using a synchronous socket connection, outside of Home Assistant. This can be useful for testing or debugging.
+### API Usage Example
+
+The `api.py` file provides the core asynchronous API.
 
 ```python
-import socket
-import time
-import re
+import asyncio
+from api import IdealProAPI
 
-DEVICE_IP = "192.168.178.112" # <<< IMPORTANT: Replace with your Ideal Pro device's IP address
-DEVICE_PORT = 8899
-
-STATUS_REGEX = re.compile(r"\{(A[1\-]),.*?\}")
-
-def send_command():
-    """
-    Toggle purifier power.
-    The device expects 'ON' and doesn't send a reply.
-    """
-    print(f"→ Sending toggle 'ON' to {DEVICE_IP}:{DEVICE_PORT}")
-    try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.settimeout(5)
-            s.connect((DEVICE_IP, DEVICE_PORT))
-
-            # 1️⃣ Send the wake-up / handshake command
-            print("→ Sending handshake: 'GD'")
-            s.sendall(b"GD")
-            time.sleep(0.5)
-
-            # 2️⃣ Send the ON toggle command
-            print("→ Sending command: 'ON'")
-            s.sendall(b"ON")
-
-            # 2️⃣ Wait briefly for device to respond
-            time.sleep(1.5)
-
-            try:
-                data = s.recv(512)
-                if data:
-                    data_str = data.decode(errors="ignore").strip()
-                    print("← Received:", data_str)
-                else:
-                    print("← No data received.")
-            except socket.timeout:
-                print("⏱ No data within 5s.")
-
-    except Exception as e:
-        print("❌ Error sending command:", e)
-
-
-def get_status():
-    """
-    Connects, waits for automatic data, and parses it.
-    Returns a dict like {'power': 'on', 'raw': '{A1,...}'}
-    """
-    print(f"→ Polling status from {DEVICE_IP}:{DEVICE_PORT}")
-    data_str = None
-    try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.settimeout(5)
-            s.connect((DEVICE_IP, DEVICE_PORT))
-
-            # 1️⃣ Send the wake-up / handshake command
-            print("→ Sending handshake: 'GD'")
-            s.sendall(b"GD")
-
-            # 2️⃣ Wait briefly for device to respond
-            time.sleep(1.5)
-
-            try:
-                data = s.recv(512)
-                if data:
-                    data_str = data.decode(errors="ignore").strip()
-                    print("← Received:", data_str)
-                else:
-                    print("← No data received.")
-            except socket.timeout:
-                print("⏱ No data within 5s.")
-    except Exception as e:
-        print("❌ Connection error:", e)
-
-    if not data_str:
-        return {"power": "unknown", "raw": None}
-
-    # parse A1 (on) or A- (off)
-    m = STATUS_REGEX.search(data_str)
-    if m:
-        power = "on" if m.group(1) == "A1" else "off"
-    else:
-        power = "unknown"
-
-    return {"power": power, "raw": data_str}
-
+async def main():
+    api = IdealProAPI("192.168.178.112")
+    
+    # Get current status
+    status = await api.async_get_power_state()
+    print(f"Device is: {status}")
+    
+    # Turn on reliably
+    await api.async_turn_on()
+    
+    # Set Fan Speed
+    await api.async_set_fan_speed_verified("auto")
 
 if __name__ == "__main__":
-    # Example: toggle power, then check state
-    print("--- Toggling Device ---")
-    send_command()
-    time.sleep(2) # Give device time to change state
-    print("\n--- Getting Status After Toggle ---")
-    state = get_status()
-    print("Current state:", state)
+    asyncio.run(main())
 ```
+
+## Reverse Engineered API Documentation
+
+The following information has been reverse-engineered from network captures and device behavior.
+
+### Protocol Overview
+
+*   **Protocol**: TCP
+*   **Port**: 8899
+*   **Handshake**: The client must send `GD` to wake up the device or request a status update. The device may push status updates spontaneously after connection or in response to commands.
+
+### Commands
+
+All commands are sent as ASCII strings. A `GD` handshake is recommended before sending commands.
+
+| Action | Command | Description |
+| :--- | :--- | :--- |
+| **Handshake/Status** | `GD` | Requests current status. |
+| **Toggle Power** | `ON` | Toggles power on/off (state dependent). |
+| **Quiet Mode** | `SQ` | Sets fan to Quiet mode. |
+| **Auto Mode** | `SA` | Sets fan to Auto mode. |
+| **Speed 1** | `S1` | Sets fan to Speed 1. |
+| **Speed 2** | `S2` | Sets fan to Speed 2. |
+| **Speed 3** | `S3` | Sets fan to Speed 3. |
+| **Turbo Mode** | `ST` | Sets fan to Turbo mode. |
+| **Set Brightness** | `D0` - `D9` | Sets LED brightness (0=Off, 9=Max). |
+
+### Status Response Format
+
+The device returns a status string enclosed in curly braces, typically comma-separated.
+Example: `{A1,FO,C00000,S1,KI,L9,D1417,V0249,R0249,N00000,O00000,Y0674,Z01771,P094,W01,HD0N1,I0275,J0000,U0540,T40,X006}`
+
+#### Parsing Key Fields:
+
+1.  **First Token (Power & Mode)**:
+    *   `A-`, `A0`: Device is **OFF**.
+    *   `A1`, `A2`, `A3`: **Auto Mode** (running at speed 1, 2, or 3).
+    *   `M1`, `M2`, `M3`: **Manual Mode** (Speed 1, 2, or 3).
+    *   `MQ`: **Quiet Mode**.
+    *   `MT`: **Turbo Mode**.
+
+2.  **LED Brightness**:
+    *   Look for a token starting with `HD` followed by a digit.
+    *   Example: `HD0...` -> Brightness 0 (Off), `HD9...` -> Brightness 9 (Max).
