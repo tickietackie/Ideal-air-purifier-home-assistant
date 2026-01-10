@@ -76,33 +76,34 @@ class IdealProLight(LightEntity):
         level = max(1, int(round(brightness * 9 / 255)))  # 1–9 range
         _LOGGER.debug("Turning LED ON at level %d", level)
 
-        try:
-            await self._api.async_set_brightness(level)
-        except Exception as err:
-            _LOGGER.error("Error setting LED brightness: %s", err)
-            return
+        # Use state-aware brightness control with verification and retries
+        success = await self._api.async_set_brightness_verified(level)
+        
+        if success:
+            _LOGGER.debug("LED confirmed at level %d, updating UI", level)
+            self._coordinator.data["led_level"] = level
+            self.async_write_ha_state()
+        else:
+            _LOGGER.warning("Failed to set LED brightness to %d after retries", level)
 
-        # Optimistic state: update before next poll
-        self._coordinator.data["led_level"] = level
-        self.async_write_ha_state()
-
-        await asyncio.sleep(0.5)
+        await asyncio.sleep(0.3)
         await self._coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
         """Turn the LED light off (set brightness to 0)."""
         _LOGGER.debug("Turning LED OFF")
-        try:
-            await self._api.async_set_brightness(0)
-        except Exception as err:
-            _LOGGER.error("Error turning LED off: %s", err)
-            return
+        
+        # Use state-aware brightness control with verification and retries
+        success = await self._api.async_set_brightness_verified(0)
+        
+        if success:
+            _LOGGER.debug("LED confirmed OFF, updating UI")
+            self._coordinator.data["led_level"] = 0
+            self.async_write_ha_state()
+        else:
+            _LOGGER.warning("Failed to turn LED off after retries")
 
-        # Optimistic state
-        self._coordinator.data["led_level"] = 0
-        self.async_write_ha_state()
-
-        await asyncio.sleep(0.5)
+        await asyncio.sleep(0.3)
         await self._coordinator.async_request_refresh()
 
     async def async_update(self):

@@ -1,0 +1,2016 @@
+No.     Time           Source                Destination           Protocol Length Info
+     25 1.566148       192.168.178.171       192.168.178.112       TCP      96     60128 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=3199487252 TSecr=0 SACK_PERM
+
+Frame 25: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60128, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea e0 22 c3 fc 79 9a 73 00 00 00 00   ...p.."..y.s....
+0040  b0 c2 ff ff 9f 74 00 00 02 04 05 b4 01 03 03 06   .....t..........
+0050  01 01 08 0a be b4 4d 14 00 00 00 00 04 02 00 00   ......M.........
+
+No.     Time           Source                Destination           Protocol Length Info
+     26 1.568640       192.168.178.112       192.168.178.171       TCP      76     8899 → 60128 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 26: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60128, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 ba 00 00 80 06 de a4 c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea e0 00 0d d4 92 fc 79 9a 74   ...."........y.t
+0040  60 12 05 b4 32 c3 00 00 02 04 05 b4               `...2.......
+
+No.     Time           Source                Destination           Protocol Length Info
+     27 1.572891       192.168.178.171       192.168.178.112       TCP      72     60128 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 27: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60128, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e0 22 c3 fc 79 9a 74 00 0d d4 93   ...p.."..y.t....
+0040  50 10 ff ff 50 34 00 00                           P...P4..
+
+No.     Time           Source                Destination           Protocol Length Info
+     28 1.574069       192.168.178.171       192.168.178.112       TCP      74     60128 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 28: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60128, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea e0 22 c3 fc 79 9a 74 00 0d d4 93   ...p.."..y.t....
+0040  50 18 ff ff 00 dc 00 00 4f 4e                     P.......ON
+
+No.     Time           Source                Destination           Protocol Length Info
+     29 1.575233       192.168.178.171       192.168.178.112       TCP      72     60128 → 8899 [FIN, ACK] Seq=3 Ack=1 Win=65535 Len=0
+
+Frame 29: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60128, Dst Port: 8899, Seq: 3, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e0 22 c3 fc 79 9a 76 00 0d d4 93   ...p.."..y.v....
+0040  50 11 ff ff 50 31 00 00                           P...P1..
+
+No.     Time           Source                Destination           Protocol Length Info
+     30 1.581377       192.168.178.112       192.168.178.171       TCP      72     8899 → 60128 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 30: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60128, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 bb 00 00 80 06 de a7 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e0 00 0d d4 93 fc 79 9a 76   ...."........y.v
+0040  50 10 05 b4 4a 7e 00 00                           P...J~..
+
+No.     Time           Source                Destination           Protocol Length Info
+     31 1.583547       192.168.178.112       192.168.178.171       TCP      72     8899 → 60128 [FIN, ACK] Seq=1 Ack=4 Win=1460 Len=0
+
+Frame 31: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60128, Seq: 1, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 bc 00 00 80 06 de a6 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e0 00 0d d4 93 fc 79 9a 77   ...."........y.w
+0040  50 11 05 b4 4a 7c 00 00                           P...J|..
+
+No.     Time           Source                Destination           Protocol Length Info
+     32 1.586207       192.168.178.171       192.168.178.112       TCP      72     60128 → 8899 [ACK] Seq=4 Ack=2 Win=65535 Len=0
+
+Frame 32: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60128, Dst Port: 8899, Seq: 4, Ack: 2, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e0 22 c3 fc 79 9a 77 00 0d d4 94   ...p.."..y.w....
+0040  50 10 ff ff 50 30 00 00                           P...P0..
+
+No.     Time           Source                Destination           Protocol Length Info
+     33 1.769141       192.168.178.171       192.168.178.112       TCP      96     60131 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=1824099054 TSecr=0 SACK_PERM
+
+Frame 33: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60131, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea e3 22 c3 07 23 f6 1e 00 00 00 00   ...p.."..#......
+0040  b0 c2 ff ff 4d 3e 00 00 02 04 05 b4 01 03 03 06   ....M>..........
+0050  01 01 08 0a 6c b9 8a ee 00 00 00 00 04 02 00 00   ....l...........
+
+No.     Time           Source                Destination           Protocol Length Info
+     34 1.772503       192.168.178.112       192.168.178.171       TCP      76     8899 → 60131 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 34: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60131, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 bd 00 00 80 06 de a1 c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea e3 00 0d d4 92 07 23 f6 1f   ...."........#..
+0040  60 12 05 b4 cc 6b 00 00 02 04 05 b4               `....k......
+
+No.     Time           Source                Destination           Protocol Length Info
+     35 1.777912       192.168.178.171       192.168.178.112       TCP      72     60131 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 35: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60131, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e3 22 c3 07 23 f6 1f 00 0d d4 93   ...p.."..#......
+0040  50 10 ff ff e9 dc 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+     36 1.779673       192.168.178.171       192.168.178.112       TCP      74     60131 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 36: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60131, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea e3 22 c3 07 23 f6 1f 00 0d d4 93   ...p.."..#......
+0040  50 18 ff ff a2 8e 00 00 47 44                     P.......GD
+
+No.     Time           Source                Destination           Protocol Length Info
+     37 1.784878       192.168.178.112       192.168.178.171       TCP      72     8899 → 60131 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 37: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60131, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 be 00 00 80 06 de a4 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e3 00 0d d4 93 07 23 f6 21   ...."........#.!
+0040  50 10 05 b4 e4 26 00 00                           P....&..
+
+No.     Time           Source                Destination           Protocol Length Info
+     41 2.005242       192.168.178.112       192.168.178.171       TCP      182    8899 → 60131 [PSH, ACK] Seq=1 Ack=3 Win=1460 Len=110
+
+Frame 41: Packet, 182 bytes on wire (1456 bits), 182 bytes captured (1456 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60131, Seq: 1, Ack: 3, Len: 110
+Data (110 bytes)
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 96 75 bf 00 00 80 06 de 35 c0 a8 b2 70   E...u......5...p
+0030  c0 a8 b2 ab 22 c3 ea e3 00 0d d4 93 07 23 f6 21   ...."........#.!
+0040  50 18 05 b4 5b d5 00 00 7b 41 2d 2c 46 4f 2c 43   P...[...{A-,FO,C
+0050  30 30 30 30 30 2c 53 30 2c 4b 49 2c 4c 39 2c 44   00000,S0,KI,L9,D
+0060  31 34 33 30 2c 56 30 32 38 33 2c 52 30 32 38 31   1430,V0283,R0281
+0070  2c 4e 30 30 30 30 30 2c 4f 30 30 30 30 30 2c 59   ,N00000,O00000,Y
+0080  30 36 37 34 2c 5a 30 31 37 37 30 2c 50 30 39 34   0674,Z01770,P094
+0090  2c 57 30 31 2c 48 44 30 4e 31 2c 49 30 32 37 35   ,W01,HD0N1,I0275
+00a0  2c 4a 30 30 30 30 2c 55 30 35 34 30 2c 54 34 30   ,J0000,U0540,T40
+00b0  2c 58 30 30 36 7d                                 ,X006}
+
+No.     Time           Source                Destination           Protocol Length Info
+     42 2.005973       192.168.178.112       192.168.178.171       TCP      72     [TCP Dup ACK 37#1] 8899 → 60131 [PSH, ACK] Seq=111 Ack=3 Win=1460 Len=0
+
+Frame 42: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60131, Seq: 111, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 bf 00 00 80 06 de a3 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e3 00 0d d5 01 07 23 f6 21   ...."........#.!
+0040  50 18 05 b4 e3 b0 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+     43 2.011888       192.168.178.171       192.168.178.112       TCP      72     60131 → 8899 [ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 43: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60131, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e3 22 c3 07 23 f6 21 00 0d d5 01   ...p.."..#.!....
+0040  50 10 ff ff e9 6c 00 00                           P....l..
+
+No.     Time           Source                Destination           Protocol Length Info
+     44 2.015035       192.168.178.171       192.168.178.112       TCP      72     60131 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 44: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60131, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e3 22 c3 07 23 f6 21 00 0d d5 01   ...p.."..#.!....
+0040  50 11 ff ff e9 6b 00 00                           P....k..
+
+No.     Time           Source                Destination           Protocol Length Info
+     45 2.020619       192.168.178.112       192.168.178.171       TCP      72     8899 → 60131 [FIN, ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 45: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60131, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 c0 00 00 80 06 de a2 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e3 00 0d d5 01 07 23 f6 22   ...."........#."
+0040  50 11 05 b4 e3 b6 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+     46 2.024768       192.168.178.171       192.168.178.112       TCP      72     60131 → 8899 [ACK] Seq=4 Ack=112 Win=65535 Len=0
+
+Frame 46: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60131, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e3 22 c3 07 23 f6 22 00 0d d5 02   ...p.."..#."....
+0040  50 10 ff ff e9 6a 00 00                           P....j..
+
+No.     Time           Source                Destination           Protocol Length Info
+     94 5.583344       192.168.178.171       192.168.178.112       TCP      96     60134 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=3655724698 TSecr=0 SACK_PERM
+
+Frame 94: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60134, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea e6 22 c3 95 6f c0 e0 00 00 00 00   ...p.."..o......
+0040  b0 c2 ff ff 23 54 00 00 02 04 05 b4 01 03 03 06   ....#T..........
+0050  01 01 08 0a d9 e5 ee 9a 00 00 00 00 04 02 00 00   ................
+
+No.     Time           Source                Destination           Protocol Length Info
+     95 5.588673       192.168.178.112       192.168.178.171       TCP      76     8899 → 60134 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 95: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60134, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 c1 00 00 80 06 de 9d c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea e6 00 0d d4 94 95 6f c0 e1   ...."........o..
+0040  60 12 05 b4 73 58 00 00 02 04 05 b4               `...sX......
+
+No.     Time           Source                Destination           Protocol Length Info
+     96 5.593559       192.168.178.171       192.168.178.112       TCP      72     60134 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 96: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60134, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e6 22 c3 95 6f c0 e1 00 0d d4 95   ...p.."..o......
+0040  50 10 ff ff 90 c9 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+     97 5.596453       192.168.178.171       192.168.178.112       TCP      74     60134 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 97: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60134, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea e6 22 c3 95 6f c0 e1 00 0d d4 95   ...p.."..o......
+0040  50 18 ff ff 49 7b 00 00 47 44                     P...I{..GD
+
+No.     Time           Source                Destination           Protocol Length Info
+     98 5.600214       192.168.178.112       192.168.178.171       TCP      72     8899 → 60134 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 98: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60134, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 c2 00 00 80 06 de a0 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e6 00 0d d4 95 95 6f c0 e3   ...."........o..
+0040  50 10 05 b4 8b 13 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+     99 5.816288       192.168.178.112       192.168.178.171       TCP      182    8899 → 60134 [PSH, ACK] Seq=1 Ack=3 Win=1460 Len=110
+
+Frame 99: Packet, 182 bytes on wire (1456 bits), 182 bytes captured (1456 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60134, Seq: 1, Ack: 3, Len: 110
+Data (110 bytes)
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 96 75 c3 00 00 80 06 de 31 c0 a8 b2 70   E...u......1...p
+0030  c0 a8 b2 ab 22 c3 ea e6 00 0d d4 95 95 6f c0 e3   ...."........o..
+0040  50 18 05 b4 08 c3 00 00 7b 41 2d 2c 46 4f 2c 43   P.......{A-,FO,C
+0050  30 30 30 30 30 2c 53 30 2c 4b 49 2c 4c 39 2c 44   00000,S0,KI,L9,D
+0060  31 34 31 36 2c 56 30 32 38 33 2c 52 30 32 38 31   1416,V0283,R0281
+0070  2c 4e 30 30 30 30 30 2c 4f 30 30 30 30 30 2c 59   ,N00000,O00000,Y
+0080  30 36 37 33 2c 5a 30 31 37 37 30 2c 50 30 39 34   0673,Z01770,P094
+0090  2c 57 30 30 2c 48 44 30 4e 31 2c 49 30 32 37 35   ,W00,HD0N1,I0275
+00a0  2c 4a 30 30 30 30 2c 55 30 30 30 30 2c 54 34 30   ,J0000,U0000,T40
+00b0  2c 58 30 30 36 7d                                 ,X006}
+
+No.     Time           Source                Destination           Protocol Length Info
+    100 5.816605       192.168.178.112       192.168.178.171       TCP      72     [TCP Dup ACK 98#1] 8899 → 60134 [PSH, ACK] Seq=111 Ack=3 Win=1460 Len=0
+
+Frame 100: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60134, Seq: 111, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 c3 00 00 80 06 de 9f c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e6 00 0d d5 03 95 6f c0 e3   ...."........o..
+0040  50 18 05 b4 8a 9d 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    101 5.822749       192.168.178.171       192.168.178.112       TCP      72     60134 → 8899 [ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 101: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60134, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e6 22 c3 95 6f c0 e3 00 0d d5 03   ...p.."..o......
+0040  50 10 ff ff 90 59 00 00                           P....Y..
+
+No.     Time           Source                Destination           Protocol Length Info
+    102 5.825040       192.168.178.171       192.168.178.112       TCP      72     60134 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 102: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60134, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e6 22 c3 95 6f c0 e3 00 0d d5 03   ...p.."..o......
+0040  50 11 ff ff 90 58 00 00                           P....X..
+
+No.     Time           Source                Destination           Protocol Length Info
+    103 5.828492       192.168.178.112       192.168.178.171       TCP      72     8899 → 60134 [FIN, ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 103: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60134, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 c4 00 00 80 06 de 9e c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e6 00 0d d5 03 95 6f c0 e4   ...."........o..
+0040  50 11 05 b4 8a a3 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    104 5.831581       192.168.178.171       192.168.178.112       TCP      72     60134 → 8899 [ACK] Seq=4 Ack=112 Win=65535 Len=0
+
+Frame 104: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60134, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e6 22 c3 95 6f c0 e4 00 0d d5 04   ...p.."..o......
+0040  50 10 ff ff 90 57 00 00                           P....W..
+
+No.     Time           Source                Destination           Protocol Length Info
+    108 6.183197       192.168.178.171       192.168.178.112       TCP      96     60137 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=3302922503 TSecr=0 SACK_PERM
+
+Frame 108: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60137, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea e9 22 c3 ef 13 68 f8 00 00 00 00   ...p.."...h.....
+0040  b0 c2 ff ff 8c 2f 00 00 02 04 05 b4 01 03 03 06   ...../..........
+0050  01 01 08 0a c4 de 99 07 00 00 00 00 04 02 00 00   ................
+
+No.     Time           Source                Destination           Protocol Length Info
+    109 6.185096       192.168.178.112       192.168.178.171       TCP      76     8899 → 60137 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 109: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60137, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 c5 00 00 80 06 de 99 c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea e9 00 0d d4 96 ef 13 68 f9   ....".........h.
+0040  60 12 05 b4 71 97 00 00 02 04 05 b4               `...q.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    110 6.190418       192.168.178.171       192.168.178.112       TCP      72     60137 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 110: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60137, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e9 22 c3 ef 13 68 f9 00 0d d4 97   ...p.."...h.....
+0040  50 10 ff ff 8f 08 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    111 6.191176       192.168.178.171       192.168.178.112       TCP      74     60137 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 111: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60137, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea e9 22 c3 ef 13 68 f9 00 0d d4 97   ...p.."...h.....
+0040  50 18 ff ff 3f b0 00 00 4f 4e                     P...?...ON
+
+No.     Time           Source                Destination           Protocol Length Info
+    112 6.191219       192.168.178.171       192.168.178.112       TCP      72     60137 → 8899 [FIN, ACK] Seq=3 Ack=1 Win=65535 Len=0
+
+Frame 112: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60137, Dst Port: 8899, Seq: 3, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e9 22 c3 ef 13 68 fb 00 0d d4 97   ...p.."...h.....
+0040  50 11 ff ff 8f 05 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    113 6.196152       192.168.178.112       192.168.178.171       TCP      72     8899 → 60137 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 113: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60137, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 c6 00 00 80 06 de 9c c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e9 00 0d d4 97 ef 13 68 fb   ....".........h.
+0040  50 10 05 b4 89 52 00 00                           P....R..
+
+No.     Time           Source                Destination           Protocol Length Info
+    114 6.201573       192.168.178.112       192.168.178.171       TCP      72     8899 → 60137 [FIN, ACK] Seq=1 Ack=4 Win=1460 Len=0
+
+Frame 114: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60137, Seq: 1, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 c7 00 00 80 06 de 9b c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea e9 00 0d d4 97 ef 13 68 fc   ....".........h.
+0040  50 11 05 b4 89 50 00 00                           P....P..
+
+No.     Time           Source                Destination           Protocol Length Info
+    115 6.206024       192.168.178.171       192.168.178.112       TCP      72     60137 → 8899 [ACK] Seq=4 Ack=2 Win=65535 Len=0
+
+Frame 115: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60137, Dst Port: 8899, Seq: 4, Ack: 2, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea e9 22 c3 ef 13 68 fc 00 0d d4 98   ...p.."...h.....
+0040  50 10 ff ff 8f 04 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    118 6.384708       192.168.178.171       192.168.178.112       TCP      96     60138 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=3232062979 TSecr=0 SACK_PERM
+
+Frame 118: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 32 00 00 00 00   ...p..".H.62....
+0040  b0 c2 ff ff a4 82 00 00 02 04 05 b4 01 03 03 06   ................
+0050  01 01 08 0a c0 a5 5e 03 00 00 00 00 04 02 00 00   ......^.........
+
+No.     Time           Source                Destination           Protocol Length Info
+    119 6.386599       192.168.178.112       192.168.178.171       TCP      76     8899 → 60138 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 119: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60138, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 c8 00 00 80 06 de 96 c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea ea 00 0d d4 96 48 c3 36 33   ....".......H.63
+0040  60 12 05 b4 4a ad 00 00 02 04 05 b4               `...J.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    120 6.391196       192.168.178.171       192.168.178.112       TCP      72     60138 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 120: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 33 00 0d d4 97   ...p..".H.63....
+0040  50 10 ff ff 68 1e 00 00                           P...h...
+
+No.     Time           Source                Destination           Protocol Length Info
+    121 6.391503       192.168.178.171       192.168.178.112       TCP      74     60138 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 121: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 33 00 0d d4 97   ...p..".H.63....
+0040  50 18 ff ff 20 d0 00 00 47 44                     P... ...GD
+
+No.     Time           Source                Destination           Protocol Length Info
+    122 6.396933       192.168.178.112       192.168.178.171       TCP      72     8899 → 60138 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 122: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60138, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 c9 00 00 80 06 de 99 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ea 00 0d d4 97 48 c3 36 35   ....".......H.65
+0040  50 10 05 b4 62 68 00 00                           P...bh..
+
+No.     Time           Source                Destination           Protocol Length Info
+    131 6.614776       192.168.178.112       192.168.178.171       TCP      182    8899 → 60138 [PSH, ACK] Seq=1 Ack=3 Win=1460 Len=110
+
+Frame 131: Packet, 182 bytes on wire (1456 bits), 182 bytes captured (1456 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60138, Seq: 1, Ack: 3, Len: 110
+Data (110 bytes)
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 96 75 ca 00 00 80 06 de 2a c0 a8 b2 70   E...u......*...p
+0030  c0 a8 b2 ab 22 c3 ea ea 00 0d d4 97 48 c3 36 35   ....".......H.65
+0040  50 18 05 b4 db 15 00 00 7b 41 31 2c 46 4f 2c 43   P.......{A1,FO,C
+0050  30 30 30 30 30 2c 53 31 2c 4b 49 2c 4c 39 2c 44   00000,S1,KI,L9,D
+0060  31 34 32 35 2c 56 30 32 38 33 2c 52 30 32 38 31   1425,V0283,R0281
+0070  2c 4e 30 30 30 30 30 2c 4f 30 30 30 30 30 2c 59   ,N00000,O00000,Y
+0080  30 36 37 34 2c 5a 30 31 37 37 30 2c 50 30 39 34   0674,Z01770,P094
+0090  2c 57 30 31 2c 48 44 30 4e 31 2c 49 30 32 37 35   ,W01,HD0N1,I0275
+00a0  2c 4a 30 30 30 30 2c 55 30 30 30 30 2c 54 34 30   ,J0000,U0000,T40
+00b0  2c 58 30 30 36 7d                                 ,X006}
+
+No.     Time           Source                Destination           Protocol Length Info
+    132 6.615907       192.168.178.112       192.168.178.171       TCP      72     [TCP Dup ACK 122#1] 8899 → 60138 [PSH, ACK] Seq=111 Ack=3 Win=1460 Len=0
+
+Frame 132: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60138, Seq: 111, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 ca 00 00 80 06 de 98 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ea 00 0d d5 05 48 c3 36 35   ....".......H.65
+0040  50 18 05 b4 61 f2 00 00                           P...a...
+
+No.     Time           Source                Destination           Protocol Length Info
+    133 6.618467       192.168.178.171       192.168.178.112       TCP      72     60138 → 8899 [ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 133: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 35 00 0d d5 05   ...p..".H.65....
+0040  50 10 ff ff 67 ae 00 00                           P...g...
+
+No.     Time           Source                Destination           Protocol Length Info
+    134 6.621417       192.168.178.171       192.168.178.112       TCP      72     60138 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 134: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 35 00 0d d5 05   ...p..".H.65....
+0040  50 11 ff ff 67 ad 00 00                           P...g...
+
+No.     Time           Source                Destination           Protocol Length Info
+    135 6.622580       192.168.178.171       192.168.178.112       TCP      72     [TCP Retransmission] 60138 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 135: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 35 00 0d d5 05   ...p..".H.65....
+0040  50 11 ff ff 67 ad 00 00                           P...g...
+
+No.     Time           Source                Destination           Protocol Length Info
+    138 6.625450       192.168.178.112       192.168.178.171       TCP      72     8899 → 60138 [FIN, ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 138: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60138, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 cb 00 00 80 06 de 97 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ea 00 0d d5 05 48 c3 36 36   ....".......H.66
+0040  50 11 05 b4 61 f8 00 00                           P...a...
+
+No.     Time           Source                Destination           Protocol Length Info
+    141 6.625976       192.168.178.112       192.168.178.171       TCP      72     [TCP Keep-Alive] 8899 → 60138 [ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 141: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60138, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 cc 00 00 80 06 de 96 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ea 00 0d d5 05 48 c3 36 36   ....".......H.66
+0040  50 10 05 b4 61 f9 00 00                           P...a...
+
+No.     Time           Source                Destination           Protocol Length Info
+    142 6.630848       192.168.178.171       192.168.178.112       TCP      72     60138 → 8899 [ACK] Seq=4 Ack=112 Win=65535 Len=0
+
+Frame 142: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 36 00 0d d5 06   ...p..".H.66....
+0040  50 10 ff ff 67 ac 00 00                           P...g...
+
+No.     Time           Source                Destination           Protocol Length Info
+    143 6.630892       192.168.178.171       192.168.178.112       TCP      72     [TCP Keep-Alive ACK] 60138 → 8899 [ACK] Seq=4 Ack=112 Win=65535 Len=0
+
+Frame 143: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60138, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ea 22 c3 48 c3 36 36 00 0d d5 06   ...p..".H.66....
+0040  50 10 ff ff 67 ac 00 00                           P...g...
+
+No.     Time           Source                Destination           Protocol Length Info
+    144 6.635082       192.168.178.112       192.168.178.171       TCP      72     [TCP ACKed unseen segment] 8899 → 60138 [RST, ACK] Seq=112 Ack=5 Win=65535 Len=0
+
+Frame 144: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60138, Seq: 112, Ack: 5, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 cd 00 00 80 06 de 95 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ea 00 0d d5 06 48 c3 36 37   ....".......H.67
+0040  50 14 ff ff 67 a7 00 00                           P...g...
+
+No.     Time           Source                Destination           Protocol Length Info
+    184 9.337335       192.168.178.153       192.168.178.112       TCP      92     44568 → 8899 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM TSval=103144310 TSecr=0 WS=128
+
+Frame 184: Packet, 92 bytes on wire (736 bits), 92 bytes captured (736 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.153, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 44568, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 3c 80 d9 40 00 40 06 d3 87 c0 a8 b2 99   E..<..@.@.......
+0030  c0 a8 b2 70 ae 18 22 c3 b4 5c 1d 66 00 00 00 00   ...p.."..\.f....
+0040  a0 02 fa f0 e2 79 00 00 02 04 05 b4 04 02 08 0a   .....y..........
+0050  06 25 db 76 00 00 00 00 01 03 03 07               .%.v........
+
+No.     Time           Source                Destination           Protocol Length Info
+    185 9.339228       192.168.178.112       192.168.178.153       TCP      76     8899 → 44568 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 185: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.153
+Transmission Control Protocol, Src Port: 8899, Dst Port: 44568, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 2c 75 ce 00 00 80 06 de a2 c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 99 22 c3 ae 18 00 0d d4 98 b4 5c 1d 67   ...."........\.g
+0040  60 12 05 b4 34 c2 00 00 02 04 05 b4               `...4.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    186 9.339466       192.168.178.153       192.168.178.112       TCP      78     44568 → 8899 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+
+Frame 186: Packet, 78 bytes on wire (624 bits), 78 bytes captured (624 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.153, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 44568, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 28 80 da 40 00 40 06 d3 9a c0 a8 b2 99   E..(..@.@.......
+0030  c0 a8 b2 70 ae 18 22 c3 b4 5c 1d 67 00 0d d4 99   ...p.."..\.g....
+0040  50 10 fa f0 57 42 00 00 00 00 00 00 00 00         P...WB........
+
+No.     Time           Source                Destination           Protocol Length Info
+    187 9.339730       192.168.178.153       192.168.178.112       TCP      78     44568 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=64240 Len=2
+
+Frame 187: Packet, 78 bytes on wire (624 bits), 78 bytes captured (624 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.153, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 44568, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 2a 80 db 40 00 40 06 d3 97 c0 a8 b2 99   E..*..@.@.......
+0030  c0 a8 b2 70 ae 18 22 c3 b4 5c 1d 67 00 0d d4 99   ...p.."..\.g....
+0040  50 18 fa f0 0f f4 00 00 47 44 00 00 00 00         P.......GD....
+
+No.     Time           Source                Destination           Protocol Length Info
+    188 9.345924       192.168.178.112       192.168.178.153       TCP      72     8899 → 44568 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 188: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.153
+Transmission Control Protocol, Src Port: 8899, Dst Port: 44568, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 28 75 cf 00 00 80 06 de a5 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 99 22 c3 ae 18 00 0d d4 99 b4 5c 1d 69   ...."........\.i
+0040  50 10 05 b4 4c 7d 00 00                           P...L}..
+
+No.     Time           Source                Destination           Protocol Length Info
+    189 9.366654       192.168.178.171       192.168.178.112       TCP      96     60141 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=2300606906 TSecr=0 SACK_PERM
+
+Frame 189: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60141, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea ed 22 c3 ef f1 a1 77 00 00 00 00   ...p.."....w....
+0040  b0 c2 ff ff ad d9 00 00 02 04 05 b4 01 03 03 06   ................
+0050  01 01 08 0a 89 20 79 ba 00 00 00 00 04 02 00 00   ..... y.........
+
+No.     Time           Source                Destination           Protocol Length Info
+    190 9.368692       192.168.178.112       192.168.178.171       TCP      76     8899 → 60141 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 190: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60141, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 d0 00 00 80 06 de 8e c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea ed 00 0d d4 98 ef f1 a1 78   ...."..........x
+0040  60 12 05 b4 38 34 00 00 02 04 05 b4               `...84......
+
+No.     Time           Source                Destination           Protocol Length Info
+    191 9.372162       192.168.178.171       192.168.178.112       TCP      72     60141 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 191: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60141, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ed 22 c3 ef f1 a1 78 00 0d d4 99   ...p.."....x....
+0040  50 10 ff ff 55 a5 00 00                           P...U...
+
+No.     Time           Source                Destination           Protocol Length Info
+    192 9.373038       192.168.178.171       192.168.178.112       TCP      74     60141 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 192: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60141, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea ed 22 c3 ef f1 a1 78 00 0d d4 99   ...p.."....x....
+0040  50 18 ff ff 06 4d 00 00 4f 4e                     P....M..ON
+
+No.     Time           Source                Destination           Protocol Length Info
+    193 9.374243       192.168.178.171       192.168.178.112       TCP      72     60141 → 8899 [FIN, ACK] Seq=3 Ack=1 Win=65535 Len=0
+
+Frame 193: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60141, Dst Port: 8899, Seq: 3, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ed 22 c3 ef f1 a1 7a 00 0d d4 99   ...p.."....z....
+0040  50 11 ff ff 55 a2 00 00                           P...U...
+
+No.     Time           Source                Destination           Protocol Length Info
+    194 9.379927       192.168.178.112       192.168.178.171       TCP      72     8899 → 60141 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 194: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60141, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 d1 00 00 80 06 de 91 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ed 00 0d d4 99 ef f1 a1 7a   ...."..........z
+0040  50 10 05 b4 4f ef 00 00                           P...O...
+
+No.     Time           Source                Destination           Protocol Length Info
+    195 9.380691       192.168.178.112       192.168.178.171       TCP      72     8899 → 60141 [FIN, ACK] Seq=1 Ack=4 Win=1460 Len=0
+
+Frame 195: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60141, Seq: 1, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 d2 00 00 80 06 de 90 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ed 00 0d d4 99 ef f1 a1 7b   ...."..........{
+0040  50 11 05 b4 4f ed 00 00                           P...O...
+
+No.     Time           Source                Destination           Protocol Length Info
+    196 9.385193       192.168.178.171       192.168.178.112       TCP      72     60141 → 8899 [ACK] Seq=4 Ack=2 Win=65535 Len=0
+
+Frame 196: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60141, Dst Port: 8899, Seq: 4, Ack: 2, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ed 22 c3 ef f1 a1 7b 00 0d d4 9a   ...p.."....{....
+0040  50 10 ff ff 55 a1 00 00                           P...U...
+
+No.     Time           Source                Destination           Protocol Length Info
+    199 9.576971       192.168.178.171       192.168.178.112       TCP      96     60142 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=2714293840 TSecr=0 SACK_PERM
+
+Frame 199: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60142, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea ee 22 c3 7d e5 e0 63 00 00 00 00   ...p..".}..c....
+0040  b0 c2 ff ff 6b ba 00 00 02 04 05 b4 01 03 03 06   ....k...........
+0050  01 01 08 0a a1 c8 d6 50 00 00 00 00 04 02 00 00   .......P........
+
+No.     Time           Source                Destination           Protocol Length Info
+    200 9.582022       192.168.178.112       192.168.178.171       TCP      76     8899 → 60142 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 200: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60142, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 d3 00 00 80 06 de 8b c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea ee 00 0d d4 9a 7d e5 e0 64   ....".......}..d
+0040  60 12 05 b4 6b 51 00 00 02 04 05 b4               `...kQ......
+
+No.     Time           Source                Destination           Protocol Length Info
+    201 9.587416       192.168.178.171       192.168.178.112       TCP      72     60142 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 201: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60142, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ee 22 c3 7d e5 e0 64 00 0d d4 9b   ...p..".}..d....
+0040  50 10 ff ff 88 c2 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    202 9.588634       192.168.178.171       192.168.178.112       TCP      74     60142 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 202: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60142, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea ee 22 c3 7d e5 e0 64 00 0d d4 9b   ...p..".}..d....
+0040  50 18 ff ff 41 74 00 00 47 44                     P...At..GD
+
+No.     Time           Source                Destination           Protocol Length Info
+    203 9.593444       192.168.178.112       192.168.178.171       TCP      72     8899 → 60142 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 203: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60142, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 d4 00 00 80 06 de 8e c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ee 00 0d d4 9b 7d e5 e0 66   ....".......}..f
+0040  50 10 05 b4 83 0c 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    204 9.594018       192.168.178.112       192.168.178.153       TCP      182    8899 → 44568 [PSH, ACK] Seq=1 Ack=3 Win=1460 Len=110
+
+Frame 204: Packet, 182 bytes on wire (1456 bits), 182 bytes captured (1456 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.153
+Transmission Control Protocol, Src Port: 8899, Dst Port: 44568, Seq: 1, Ack: 3, Len: 110
+Data (110 bytes)
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 96 75 d5 00 00 80 06 de 31 c0 a8 b2 70   E...u......1...p
+0030  c0 a8 b2 99 22 c3 ae 18 00 0d d4 99 b4 5c 1d 69   ...."........\.i
+0040  50 18 05 b4 c7 2c 00 00 7b 41 31 2c 46 4f 2c 43   P....,..{A1,FO,C
+0050  30 30 30 30 30 2c 53 31 2c 4b 49 2c 4c 39 2c 44   00000,S1,KI,L9,D
+0060  31 34 30 33 2c 56 30 32 38 33 2c 52 30 32 38 31   1403,V0283,R0281
+0070  2c 4e 30 30 30 30 30 2c 4f 30 30 30 30 30 2c 59   ,N00000,O00000,Y
+0080  30 36 37 34 2c 5a 30 31 37 37 30 2c 50 30 39 34   0674,Z01770,P094
+0090  2c 57 30 31 2c 48 44 30 4e 31 2c 49 30 32 37 35   ,W01,HD0N1,I0275
+00a0  2c 4a 30 30 30 30 2c 55 30 30 30 30 2c 54 34 30   ,J0000,U0000,T40
+00b0  2c 58 30 30 36 7d                                 ,X006}
+
+No.     Time           Source                Destination           Protocol Length Info
+    205 9.594249       192.168.178.153       192.168.178.112       TCP      78     44568 → 8899 [ACK] Seq=3 Ack=111 Win=64130 Len=0
+
+Frame 205: Packet, 78 bytes on wire (624 bits), 78 bytes captured (624 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.153, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 44568, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 28 80 dc 40 00 40 06 d3 98 c0 a8 b2 99   E..(..@.@.......
+0030  c0 a8 b2 70 ae 18 22 c3 b4 5c 1d 69 00 0d d5 07   ...p.."..\.i....
+0040  50 10 fa 82 57 40 00 00 00 00 00 00 00 00         P...W@........
+
+No.     Time           Source                Destination           Protocol Length Info
+    206 9.597378       192.168.178.112       192.168.178.153       TCP      72     [TCP Dup ACK 188#1] 8899 → 44568 [PSH, ACK] Seq=111 Ack=3 Win=1460 Len=0
+
+Frame 206: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.153
+Transmission Control Protocol, Src Port: 8899, Dst Port: 44568, Seq: 111, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 28 75 d5 00 00 80 06 de 9f c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 99 22 c3 ae 18 00 0d d5 07 b4 5c 1d 69   ...."........\.i
+0040  50 18 05 b4 4c 07 00 00                           P...L...
+
+No.     Time           Source                Destination           Protocol Length Info
+    208 9.640262       192.168.178.153       192.168.178.112       TCP      78     44568 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=64130 Len=0
+
+Frame 208: Packet, 78 bytes on wire (624 bits), 78 bytes captured (624 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.153, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 44568, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 28 80 dd 40 00 40 06 d3 97 c0 a8 b2 99   E..(..@.@.......
+0030  c0 a8 b2 70 ae 18 22 c3 b4 5c 1d 69 00 0d d5 07   ...p.."..\.i....
+0040  50 11 fa 82 57 3f 00 00 00 00 00 00 00 00         P...W?........
+
+No.     Time           Source                Destination           Protocol Length Info
+    209 9.644537       192.168.178.112       192.168.178.153       TCP      72     8899 → 44568 [FIN, ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 209: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.153
+Transmission Control Protocol, Src Port: 8899, Dst Port: 44568, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 28 75 d6 00 00 80 06 de 9e c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 99 22 c3 ae 18 00 0d d5 07 b4 5c 1d 6a   ...."........\.j
+0040  50 11 05 b4 4c 0d 00 00                           P...L...
+
+No.     Time           Source                Destination           Protocol Length Info
+    210 9.644772       192.168.178.153       192.168.178.112       TCP      78     44568 → 8899 [ACK] Seq=4 Ack=112 Win=64129 Len=0
+
+Frame 210: Packet, 78 bytes on wire (624 bits), 78 bytes captured (624 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.153, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 44568, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  2c cf 67 a6 59 e2 00 00 aa aa 03 00 00 00 08 00   ,.g.Y...........
+0020  45 00 00 28 80 de 40 00 40 06 d3 96 c0 a8 b2 99   E..(..@.@.......
+0030  c0 a8 b2 70 ae 18 22 c3 b4 5c 1d 6a 00 0d d5 08   ...p.."..\.j....
+0040  50 10 fa 81 57 3f 00 00 00 00 00 00 00 00         P...W?........
+
+No.     Time           Source                Destination           Protocol Length Info
+    279 12.583592      192.168.178.171       192.168.178.112       TCP      96     60147 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=367579900 TSecr=0 SACK_PERM
+
+Frame 279: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60147, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea f3 22 c3 8e ea 46 ad 00 00 00 00   ...p.."...F.....
+0040  b0 c2 ff ff 83 9b 00 00 02 04 05 b4 01 03 03 06   ................
+0050  01 01 08 0a 15 e8 d2 fc 00 00 00 00 04 02 00 00   ................
+
+No.     Time           Source                Destination           Protocol Length Info
+    280 12.585630      192.168.178.112       192.168.178.171       TCP      76     8899 → 60147 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 280: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60147, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 d7 00 00 80 06 de 87 c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea f3 00 0d d4 b9 8e ea 46 ae   ....".........F.
+0040  60 12 05 b4 f3 de 00 00 02 04 05 b4               `...........
+
+No.     Time           Source                Destination           Protocol Length Info
+    281 12.590189      192.168.178.171       192.168.178.112       TCP      72     60147 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 281: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60147, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f3 22 c3 8e ea 46 ae 00 0d d4 ba   ...p.."...F.....
+0040  50 10 ff ff 11 50 00 00                           P....P..
+
+No.     Time           Source                Destination           Protocol Length Info
+    282 12.591393      192.168.178.171       192.168.178.112       TCP      74     60147 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 282: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60147, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea f3 22 c3 8e ea 46 ae 00 0d d4 ba   ...p.."...F.....
+0040  50 18 ff ff c1 f7 00 00 4f 4e                     P.......ON
+
+No.     Time           Source                Destination           Protocol Length Info
+    283 12.591454      192.168.178.171       192.168.178.112       TCP      72     60147 → 8899 [FIN, ACK] Seq=3 Ack=1 Win=65535 Len=0
+
+Frame 283: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60147, Dst Port: 8899, Seq: 3, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f3 22 c3 8e ea 46 b0 00 0d d4 ba   ...p.."...F.....
+0040  50 11 ff ff 11 4d 00 00                           P....M..
+
+No.     Time           Source                Destination           Protocol Length Info
+    284 12.620185      192.168.178.112       192.168.178.171       TCP      72     8899 → 60147 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 284: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60147, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 d8 00 00 80 06 de 8a c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f3 00 0d d4 ba 8e ea 46 b0   ....".........F.
+0040  50 10 05 b4 0b 9a 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    285 12.622593      192.168.178.112       192.168.178.171       TCP      72     8899 → 60147 [FIN, ACK] Seq=1 Ack=4 Win=1460 Len=0
+
+Frame 285: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60147, Seq: 1, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 d9 00 00 80 06 de 89 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f3 00 0d d4 ba 8e ea 46 b1   ....".........F.
+0040  50 11 05 b4 0b 98 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    286 12.626922      192.168.178.171       192.168.178.112       TCP      72     60147 → 8899 [ACK] Seq=4 Ack=2 Win=65535 Len=0
+
+Frame 286: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60147, Dst Port: 8899, Seq: 4, Ack: 2, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f3 22 c3 8e ea 46 b1 00 0d d4 bb   ...p.."...F.....
+0040  50 10 ff ff 11 4c 00 00                           P....L..
+
+No.     Time           Source                Destination           Protocol Length Info
+    291 12.785341      192.168.178.171       192.168.178.112       TCP      96     60148 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=611912164 TSecr=0 SACK_PERM
+
+Frame 291: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60148, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea f4 22 c3 2d 8a b3 d1 00 00 00 00   ...p..".-.......
+0040  b0 c2 ff ff 32 5e 00 00 02 04 05 b4 01 03 03 06   ....2^..........
+0050  01 01 08 0a 24 79 09 e4 00 00 00 00 04 02 00 00   ....$y..........
+
+No.     Time           Source                Destination           Protocol Length Info
+    292 12.786362      192.168.178.171       192.168.178.112       TCP      72     60142 → 8899 [FIN, ACK] Seq=3 Ack=1 Win=65535 Len=0
+
+Frame 292: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60142, Dst Port: 8899, Seq: 3, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ee 22 c3 7d e5 e0 66 00 0d d4 9b   ...p..".}..f....
+0040  50 11 ff ff 88 bf 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    293 12.788505      192.168.178.112       192.168.178.171       TCP      76     8899 → 60148 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 293: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60148, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 da 00 00 80 06 de 84 c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea f4 00 0d d4 bb 2d 8a b3 d2   ....".......-...
+0040  60 12 05 b4 e8 17 00 00 02 04 05 b4               `...........
+
+No.     Time           Source                Destination           Protocol Length Info
+    294 12.790624      192.168.178.112       192.168.178.171       TCP      72     8899 → 60142 [FIN, ACK] Seq=1 Ack=4 Win=1460 Len=0
+
+Frame 294: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60142, Seq: 1, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 db 00 00 80 06 de 87 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea ee 00 0d d4 9b 7d e5 e0 67   ....".......}..g
+0040  50 11 05 b4 83 0a 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    295 12.790750      192.168.178.171       192.168.178.112       TCP      72     60148 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 295: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60148, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f4 22 c3 2d 8a b3 d2 00 0d d4 bc   ...p..".-.......
+0040  50 10 ff ff 05 89 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    296 12.792242      192.168.178.171       192.168.178.112       TCP      74     60148 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 296: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60148, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea f4 22 c3 2d 8a b3 d2 00 0d d4 bc   ...p..".-.......
+0040  50 18 ff ff be 3a 00 00 47 44                     P....:..GD
+
+No.     Time           Source                Destination           Protocol Length Info
+    297 12.795466      192.168.178.171       192.168.178.112       TCP      72     60142 → 8899 [ACK] Seq=4 Ack=2 Win=65535 Len=0
+
+Frame 297: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60142, Dst Port: 8899, Seq: 4, Ack: 2, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea ee 22 c3 7d e5 e0 67 00 0d d4 9c   ...p..".}..g....
+0040  50 10 ff ff 88 be 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    298 12.797365      192.168.178.112       192.168.178.171       TCP      72     8899 → 60148 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 298: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60148, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 dc 00 00 80 06 de 86 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f4 00 0d d4 bc 2d 8a b3 d4   ....".......-...
+0040  50 10 05 b4 ff d2 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    299 13.007287      192.168.178.112       192.168.178.171       TCP      182    8899 → 60148 [PSH, ACK] Seq=1 Ack=3 Win=1460 Len=110
+
+Frame 299: Packet, 182 bytes on wire (1456 bits), 182 bytes captured (1456 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60148, Seq: 1, Ack: 3, Len: 110
+Data (110 bytes)
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 96 75 dd 00 00 80 06 de 17 c0 a8 b2 70   E...u..........p
+0030  c0 a8 b2 ab 22 c3 ea f4 00 0d d4 bc 2d 8a b3 d4   ....".......-...
+0040  50 18 05 b4 78 7e 00 00 7b 41 2d 2c 46 4f 2c 43   P...x~..{A-,FO,C
+0050  30 30 30 30 30 2c 53 30 2c 4b 49 2c 4c 39 2c 44   00000,S0,KI,L9,D
+0060  31 34 32 34 2c 56 30 32 38 33 2c 52 30 32 38 31   1424,V0283,R0281
+0070  2c 4e 30 30 30 30 30 2c 4f 30 30 30 30 30 2c 59   ,N00000,O00000,Y
+0080  30 36 37 33 2c 5a 30 31 37 37 30 2c 50 30 39 34   0673,Z01770,P094
+0090  2c 57 30 31 2c 48 44 30 4e 31 2c 49 30 32 37 35   ,W01,HD0N1,I0275
+00a0  2c 4a 30 30 30 30 2c 55 30 35 34 30 2c 54 34 30   ,J0000,U0540,T40
+00b0  2c 58 30 30 36 7d                                 ,X006}
+
+No.     Time           Source                Destination           Protocol Length Info
+    300 13.007545      192.168.178.112       192.168.178.171       TCP      72     [TCP Dup ACK 298#1] 8899 → 60148 [PSH, ACK] Seq=111 Ack=3 Win=1460 Len=0
+
+Frame 300: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60148, Seq: 111, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 dd 00 00 80 06 de 85 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f4 00 0d d5 2a 2d 8a b3 d4   ...."......*-...
+0040  50 18 05 b4 ff 5c 00 00                           P....\..
+
+No.     Time           Source                Destination           Protocol Length Info
+    301 13.012332      192.168.178.171       192.168.178.112       TCP      72     60148 → 8899 [ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 301: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60148, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f4 22 c3 2d 8a b3 d4 00 0d d5 2a   ...p..".-......*
+0040  50 10 ff ff 05 19 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    302 13.015776      192.168.178.171       192.168.178.112       TCP      72     60148 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 302: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60148, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f4 22 c3 2d 8a b3 d4 00 0d d5 2a   ...p..".-......*
+0040  50 11 ff ff 05 18 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    303 13.020661      192.168.178.112       192.168.178.171       TCP      72     8899 → 60148 [FIN, ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 303: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60148, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 de 00 00 80 06 de 84 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f4 00 0d d5 2a 2d 8a b3 d5   ...."......*-...
+0040  50 11 05 b4 ff 62 00 00                           P....b..
+
+No.     Time           Source                Destination           Protocol Length Info
+    304 13.024746      192.168.178.171       192.168.178.112       TCP      72     60148 → 8899 [ACK] Seq=4 Ack=112 Win=65535 Len=0
+
+Frame 304: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60148, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f4 22 c3 2d 8a b3 d5 00 0d d5 2b   ...p..".-......+
+0040  50 10 ff ff 05 17 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    315 13.717024      192.168.178.171       192.168.178.112       TCP      96     60151 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=2770367538 TSecr=0 SACK_PERM
+
+Frame 315: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60151, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea f7 22 c3 1f 32 f8 de 00 00 00 00   ...p.."..2......
+0040  b0 c2 ff ff 10 b0 00 00 02 04 05 b4 01 03 03 06   ................
+0050  01 01 08 0a a5 20 74 32 00 00 00 00 04 02 00 00   ..... t2........
+
+No.     Time           Source                Destination           Protocol Length Info
+    316 13.719938      192.168.178.112       192.168.178.171       TCP      76     8899 → 60151 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 316: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60151, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 df 00 00 80 06 de 7f c0 a8 b2 70   E..,u..........p
+0030  c0 a8 b2 ab 22 c3 ea f7 00 0d d4 bd 1f 32 f8 df   ...."........2..
+0040  60 12 05 b4 b1 5d 00 00 02 04 05 b4               `....]......
+
+No.     Time           Source                Destination           Protocol Length Info
+    317 13.724798      192.168.178.171       192.168.178.112       TCP      72     60151 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 317: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60151, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f7 22 c3 1f 32 f8 df 00 0d d4 be   ...p.."..2......
+0040  50 10 ff ff ce ce 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    318 13.726081      192.168.178.171       192.168.178.112       TCP      74     60151 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 318: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60151, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea f7 22 c3 1f 32 f8 df 00 0d d4 be   ...p.."..2......
+0040  50 18 ff ff 7f 76 00 00 4f 4e                     P....v..ON
+
+No.     Time           Source                Destination           Protocol Length Info
+    319 13.726113      192.168.178.171       192.168.178.112       TCP      72     60151 → 8899 [FIN, ACK] Seq=3 Ack=1 Win=65535 Len=0
+
+Frame 319: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60151, Dst Port: 8899, Seq: 3, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f7 22 c3 1f 32 f8 e1 00 0d d4 be   ...p.."..2......
+0040  50 11 ff ff ce cb 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    322 13.730580      192.168.178.112       192.168.178.171       TCP      72     8899 → 60151 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 322: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60151, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e0 00 00 80 06 de 82 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f7 00 0d d4 be 1f 32 f8 e1   ...."........2..
+0040  50 10 05 b4 c9 18 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    323 13.732762      192.168.178.112       192.168.178.171       TCP      72     8899 → 60151 [FIN, ACK] Seq=1 Ack=4 Win=1460 Len=0
+
+Frame 323: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60151, Seq: 1, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e1 00 00 80 06 de 81 c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f7 00 0d d4 be 1f 32 f8 e2   ...."........2..
+0040  50 11 05 b4 c9 16 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    324 13.738603      192.168.178.171       192.168.178.112       TCP      72     60151 → 8899 [ACK] Seq=4 Ack=2 Win=65535 Len=0
+
+Frame 324: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60151, Dst Port: 8899, Seq: 4, Ack: 2, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f7 22 c3 1f 32 f8 e2 00 0d d4 bf   ...p.."..2......
+0040  50 10 ff ff ce ca 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    333 13.918097      192.168.178.171       192.168.178.112       TCP      96     60152 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=2165204468 TSecr=0 SACK_PERM
+
+Frame 333: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60152, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea f8 22 c3 51 10 67 57 00 00 00 00   ...p..".Q.gW....
+0040  b0 c2 ff ff a2 a8 00 00 02 04 05 b4 01 03 03 06   ................
+0050  01 01 08 0a 81 0e 65 f4 00 00 00 00 04 02 00 00   ......e.........
+
+No.     Time           Source                Destination           Protocol Length Info
+    334 13.921684      192.168.178.112       192.168.178.171       TCP      76     8899 → 60152 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 334: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60152, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 e2 00 00 80 06 de 7c c0 a8 b2 70   E..,u......|...p
+0030  c0 a8 b2 ab 22 c3 ea f8 00 0d d4 bd 51 10 67 58   ....".......Q.gX
+0040  60 12 05 b4 11 06 00 00 02 04 05 b4               `...........
+
+No.     Time           Source                Destination           Protocol Length Info
+    335 13.926205      192.168.178.171       192.168.178.112       TCP      72     60152 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 335: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60152, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f8 22 c3 51 10 67 58 00 0d d4 be   ...p..".Q.gX....
+0040  50 10 ff ff 2e 77 00 00                           P....w..
+
+No.     Time           Source                Destination           Protocol Length Info
+    336 13.927398      192.168.178.171       192.168.178.112       TCP      74     60152 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 336: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60152, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea f8 22 c3 51 10 67 58 00 0d d4 be   ...p..".Q.gX....
+0040  50 18 ff ff e7 28 00 00 47 44                     P....(..GD
+
+No.     Time           Source                Destination           Protocol Length Info
+    337 13.942215      192.168.178.112       192.168.178.171       TCP      72     8899 → 60152 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 337: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60152, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e3 00 00 80 06 de 7f c0 a8 b2 70   E..(u..........p
+0030  c0 a8 b2 ab 22 c3 ea f8 00 0d d4 be 51 10 67 5a   ....".......Q.gZ
+0040  50 10 05 b4 28 c1 00 00                           P...(...
+
+No.     Time           Source                Destination           Protocol Length Info
+    341 14.165267      192.168.178.112       192.168.178.171       TCP      182    8899 → 60152 [PSH, ACK] Seq=1 Ack=3 Win=1460 Len=110
+
+Frame 341: Packet, 182 bytes on wire (1456 bits), 182 bytes captured (1456 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60152, Seq: 1, Ack: 3, Len: 110
+Data (110 bytes)
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 96 75 e4 00 00 80 06 de 10 c0 a8 b2 70   E...u..........p
+0030  c0 a8 b2 ab 22 c3 ea f8 00 0d d4 be 51 10 67 5a   ....".......Q.gZ
+0040  50 18 05 b4 9d 6c 00 00 7b 41 31 2c 46 4f 2c 43   P....l..{A1,FO,C
+0050  30 30 30 30 30 2c 53 31 2c 4b 49 2c 4c 39 2c 44   00000,S1,KI,L9,D
+0060  31 34 32 34 2c 56 30 32 38 33 2c 52 30 32 38 31   1424,V0283,R0281
+0070  2c 4e 30 30 30 30 30 2c 4f 30 30 30 30 30 2c 59   ,N00000,O00000,Y
+0080  30 36 37 33 2c 5a 30 31 37 37 30 2c 50 30 39 34   0673,Z01770,P094
+0090  2c 57 30 30 2c 48 44 30 4e 31 2c 49 30 32 37 35   ,W00,HD0N1,I0275
+00a0  2c 4a 30 30 30 30 2c 55 30 35 34 30 2c 54 34 30   ,J0000,U0540,T40
+00b0  2c 58 30 30 36 7d                                 ,X006}
+
+No.     Time           Source                Destination           Protocol Length Info
+    342 14.165578      192.168.178.112       192.168.178.171       TCP      72     [TCP Dup ACK 337#1] 8899 → 60152 [PSH, ACK] Seq=111 Ack=3 Win=1460 Len=0
+
+Frame 342: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60152, Seq: 111, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e4 00 00 80 06 de 7e c0 a8 b2 70   E..(u......~...p
+0030  c0 a8 b2 ab 22 c3 ea f8 00 0d d5 2c 51 10 67 5a   ...."......,Q.gZ
+0040  50 18 05 b4 28 4b 00 00                           P...(K..
+
+No.     Time           Source                Destination           Protocol Length Info
+    343 14.169785      192.168.178.171       192.168.178.112       TCP      72     60152 → 8899 [ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 343: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60152, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f8 22 c3 51 10 67 5a 00 0d d5 2c   ...p..".Q.gZ...,
+0040  50 10 ff ff 2e 07 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    344 14.173212      192.168.178.171       192.168.178.112       TCP      72     60152 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 344: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60152, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f8 22 c3 51 10 67 5a 00 0d d5 2c   ...p..".Q.gZ...,
+0040  50 11 ff ff 2e 06 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    345 14.176601      192.168.178.112       192.168.178.171       TCP      72     8899 → 60152 [FIN, ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 345: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60152, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e5 00 00 80 06 de 7d c0 a8 b2 70   E..(u......}...p
+0030  c0 a8 b2 ab 22 c3 ea f8 00 0d d5 2c 51 10 67 5b   ...."......,Q.g[
+0040  50 11 05 b4 28 51 00 00                           P...(Q..
+
+No.     Time           Source                Destination           Protocol Length Info
+    346 14.181613      192.168.178.171       192.168.178.112       TCP      72     60152 → 8899 [ACK] Seq=4 Ack=112 Win=65535 Len=0
+
+Frame 346: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60152, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea f8 22 c3 51 10 67 5b 00 0d d5 2d   ...p..".Q.g[...-
+0040  50 10 ff ff 2e 05 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    376 15.639505      192.168.178.171       192.168.178.112       TCP      96     60155 → 8899 [SYN, ECE, CWR] Seq=0 Win=65535 Len=0 MSS=1460 WS=64 TSval=192453114 TSecr=0 SACK_PERM
+
+Frame 376: Packet, 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60155, Dst Port: 8899, Seq: 0, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 40 00 00 40 00 40 06 54 4b c0 a8 b2 ab   E..@..@.@.TK....
+0030  c0 a8 b2 70 ea fb 22 c3 d1 0b 76 39 00 00 00 00   ...p.."...v9....
+0040  b0 c2 ff ff 55 58 00 00 02 04 05 b4 01 03 03 06   ....UX..........
+0050  01 01 08 0a 0b 78 99 fa 00 00 00 00 04 02 00 00   .....x..........
+
+No.     Time           Source                Destination           Protocol Length Info
+    377 15.641395      192.168.178.112       192.168.178.171       TCP      76     8899 → 60155 [SYN, ACK] Seq=0 Ack=1 Win=1460 Len=0 MSS=1460
+
+Frame 377: Packet, 76 bytes on wire (608 bits), 76 bytes captured (608 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60155, Seq: 0, Ack: 1, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2c 75 e6 00 00 80 06 de 78 c0 a8 b2 70   E..,u......x...p
+0030  c0 a8 b2 ab 22 c3 ea fb 00 0d d4 bf d1 0b 76 3a   ....".........v:
+0040  60 12 05 b4 82 23 00 00 02 04 05 b4               `....#......
+
+No.     Time           Source                Destination           Protocol Length Info
+    378 15.646518      192.168.178.171       192.168.178.112       TCP      72     60155 → 8899 [ACK] Seq=1 Ack=1 Win=65535 Len=0
+
+Frame 378: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60155, Dst Port: 8899, Seq: 1, Ack: 1, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea fb 22 c3 d1 0b 76 3a 00 0d d4 c0   ...p.."...v:....
+0040  50 10 ff ff 9f 94 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    379 15.652666      192.168.178.171       192.168.178.112       TCP      74     60155 → 8899 [PSH, ACK] Seq=1 Ack=1 Win=65535 Len=2
+
+Frame 379: Packet, 74 bytes on wire (592 bits), 74 bytes captured (592 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60155, Dst Port: 8899, Seq: 1, Ack: 1, Len: 2
+Data (2 bytes)
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 2a 00 00 40 00 40 06 54 61 c0 a8 b2 ab   E..*..@.@.Ta....
+0030  c0 a8 b2 70 ea fb 22 c3 d1 0b 76 3a 00 0d d4 c0   ...p.."...v:....
+0040  50 18 ff ff 58 46 00 00 47 44                     P...XF..GD
+
+No.     Time           Source                Destination           Protocol Length Info
+    380 15.656429      192.168.178.112       192.168.178.171       TCP      72     8899 → 60155 [ACK] Seq=1 Ack=3 Win=1460 Len=0
+
+Frame 380: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60155, Seq: 1, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e7 00 00 80 06 de 7b c0 a8 b2 70   E..(u......{...p
+0030  c0 a8 b2 ab 22 c3 ea fb 00 0d d4 c0 d1 0b 76 3c   ....".........v<
+0040  50 10 05 b4 99 de 00 00                           P.......
+
+No.     Time           Source                Destination           Protocol Length Info
+    386 15.865359      192.168.178.112       192.168.178.171       TCP      182    8899 → 60155 [PSH, ACK] Seq=1 Ack=3 Win=1460 Len=110
+
+Frame 386: Packet, 182 bytes on wire (1456 bits), 182 bytes captured (1456 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60155, Seq: 1, Ack: 3, Len: 110
+Data (110 bytes)
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 96 75 e8 00 00 80 06 de 0c c0 a8 b2 70   E...u..........p
+0030  c0 a8 b2 ab 22 c3 ea fb 00 0d d4 c0 d1 0b 76 3c   ....".........v<
+0040  50 18 05 b4 09 8a 00 00 7b 41 31 2c 46 4f 2c 43   P.......{A1,FO,C
+0050  30 30 30 30 30 2c 53 31 2c 4b 49 2c 4c 39 2c 44   00000,S1,KI,L9,D
+0060  31 34 33 37 2c 56 30 32 38 33 2c 52 30 32 38 31   1437,V0283,R0281
+0070  2c 4e 30 30 30 30 30 2c 4f 30 30 30 30 30 2c 59   ,N00000,O00000,Y
+0080  30 36 37 33 2c 5a 30 31 37 37 30 2c 50 30 39 34   0673,Z01770,P094
+0090  2c 57 30 31 2c 48 44 30 4e 31 2c 49 30 32 37 35   ,W01,HD0N1,I0275
+00a0  2c 4a 30 30 30 30 2c 55 30 31 38 30 2c 54 34 30   ,J0000,U0180,T40
+00b0  2c 58 30 30 36 7d                                 ,X006}
+
+No.     Time           Source                Destination           Protocol Length Info
+    387 15.865544      192.168.178.112       192.168.178.171       TCP      72     [TCP Dup ACK 380#1] 8899 → 60155 [PSH, ACK] Seq=111 Ack=3 Win=1460 Len=0
+
+Frame 387: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60155, Seq: 111, Ack: 3, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e8 00 00 80 06 de 7a c0 a8 b2 70   E..(u......z...p
+0030  c0 a8 b2 ab 22 c3 ea fb 00 0d d5 2e d1 0b 76 3c   ....".........v<
+0040  50 18 05 b4 99 68 00 00                           P....h..
+
+No.     Time           Source                Destination           Protocol Length Info
+    388 15.868543      192.168.178.171       192.168.178.112       TCP      72     60155 → 8899 [ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 388: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60155, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea fb 22 c3 d1 0b 76 3c 00 0d d5 2e   ...p.."...v<....
+0040  50 10 ff ff 9f 24 00 00                           P....$..
+
+No.     Time           Source                Destination           Protocol Length Info
+    389 15.872446      192.168.178.171       192.168.178.112       TCP      72     60155 → 8899 [FIN, ACK] Seq=3 Ack=111 Win=65535 Len=0
+
+Frame 389: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60155, Dst Port: 8899, Seq: 3, Ack: 111, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea fb 22 c3 d1 0b 76 3c 00 0d d5 2e   ...p.."...v<....
+0040  50 11 ff ff 9f 23 00 00                           P....#..
+
+No.     Time           Source                Destination           Protocol Length Info
+    390 15.875871      192.168.178.112       192.168.178.171       TCP      72     8899 → 60155 [FIN, ACK] Seq=111 Ack=4 Win=1460 Len=0
+
+Frame 390: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: .......T
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.112, Dst: 192.168.178.171
+Transmission Control Protocol, Src Port: 8899, Dst Port: 60155, Seq: 111, Ack: 4, Len: 0
+
+0000  08 01 00 00 00 c0 ff ee ba be 28 9c 6e 6d 04 99   ..........(.nm..
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 75 e9 00 00 80 06 de 79 c0 a8 b2 70   E..(u......y...p
+0030  c0 a8 b2 ab 22 c3 ea fb 00 0d d5 2e d1 0b 76 3d   ....".........v=
+0040  50 11 05 b4 99 6e 00 00                           P....n..
+
+No.     Time           Source                Destination           Protocol Length Info
+    391 15.879839      192.168.178.171       192.168.178.112       TCP      72     60155 → 8899 [ACK] Seq=4 Ack=112 Win=65535 Len=0
+
+Frame 391: Packet, 72 bytes on wire (576 bits), 72 bytes captured (576 bits)
+IEEE 802.11 Data, Flags: ......F.
+Logical-Link Control
+Internet Protocol Version 4, Src: 192.168.178.171, Dst: 192.168.178.112
+Transmission Control Protocol, Src Port: 60155, Dst Port: 8899, Seq: 4, Ack: 112, Len: 0
+
+0000  08 02 00 00 28 9c 6e 6d 04 99 00 c0 ff ee ba be   ....(.nm........
+0010  42 22 e1 9f 2a 3b 00 00 aa aa 03 00 00 00 08 00   B"..*;..........
+0020  45 00 00 28 00 00 40 00 40 06 54 63 c0 a8 b2 ab   E..(..@.@.Tc....
+0030  c0 a8 b2 70 ea fb 22 c3 d1 0b 76 3d 00 0d d5 2f   ...p.."...v=.../
+0040  50 10 ff ff 9f 22 00 00                           P...."..
