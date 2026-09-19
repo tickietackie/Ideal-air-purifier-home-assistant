@@ -1,3 +1,3 @@
 DOMAIN = "idealpro"
 DEFAULT_PORT = 8899
-PLATFORMS = ["switch", "light", "fan"]
+PLATFORMS = ["switch", "light", "fan", "sensor"]

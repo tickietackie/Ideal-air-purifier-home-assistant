@@ -89,6 +89,14 @@ def test_led_levels():
     assert API.parse_status(STATUS_OFF)["led_level"] == 0
 
 
+def test_pm25():
+    assert API.parse_status(STATUS_AUTO_2)["pm25"] == 14.24
+    assert API.parse_status(STATUS_OFF)["pm25"] == 14.3
+    # deodorant test spike observed live: D1718 -> 17.18 µg/m³
+    spike = API.parse_status("{A1,FO,C00000,S1,KI,L9,D1718,V0335,HD6N1}")
+    assert spike["pm25"] == 17.18
+
+
 def test_tokens_and_body():
     status = API.parse_status(STATUS_AUTO_2)
     assert status["body"] == STATUS_AUTO_2.strip("{}")

@@ -11,6 +11,7 @@ This repository contains a custom Home Assistant integration for Ideal Pro devic
     *   **State Recovery**: If the device is unplugged or loses power, Home Assistant will correctly mark it as `Unavailable` and recover connection automatically when it returns.
     *   **Verification**: Commands (like changing speed) are verified by checking the device's response, ensuring the action actually happened.
 *   **LED Control**: Turn the LED off/on and set brightness (via automated scripts or potentially exposed entities).
+*   **Air Quality**: PM2.5 sensor based on the purifier's built-in particle sensor (device field `D`, reported as µg/m³ with two decimals).
 *   **Easy Setup**: Configurable via Home Assistant's UI.
 
 ## Supported Devices
@@ -52,6 +53,14 @@ Once configured, the following entities will appear in your Home Assistant insta
     *   Set preset modes: `Auto`, `Quiet`, `Turbo`, `Speed 1-3`.
 *   **Switch Entity** (`switch.ideal_pro`):
     *   Simple on/off toggle for the main power.
+*   **PM2.5 Sensor** (`sensor.ideal_pro_pm2_5`):
+    *   Current PM2.5 concentration in µg/m³ from the purifier's particle sensor.
+    *   Extra attributes: raw gas sensor value and full raw status.
+*   **Diagnostic Sensors** (hidden under the device's Diagnostic section):
+    *   `sensor.ideal_pro_fan_rpm`: motor speed in RPM.
+    *   `sensor.ideal_pro_auto_stage`: stage selected by auto mode (`off`/`low`/`medium`/`high`).
+    *   `sensor.ideal_pro_boost_remaining`: seconds left of the current auto boost.
+    *   `sensor.ideal_pro_operating_hours`: total operating hours (useful for filter maintenance).
 
 **Note:** If you change the device settings externally (e.g., via the physical remote or another app), Home Assistant will update its state within 30 seconds.
 

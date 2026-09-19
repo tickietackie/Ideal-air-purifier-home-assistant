@@ -304,6 +304,12 @@ class IdealProAPI:
                 out["led_level"] = int(m.group(1))
                 _LOGGER.debug("Detected LED level: %s", out["led_level"])
 
+        # PM2.5 is reported in D as µg/m³ x 100 (e.g. D1420 -> 14.20)
+        try:
+            out["pm25"] = int(out["D"]) / 100
+        except (KeyError, TypeError, ValueError):
+            pass
+
         out["body"] = body
         return out
 
