@@ -53,16 +53,16 @@ class IdealProFan(CoordinatorEntity, FanEntity):
 
     @property
     def is_on(self):
-        """Return True if the fan is on (not in quiet mode and device is powered on)."""
+        """Return True if the fan is on."""
         data = self.coordinator.data or {}
-        power = data.get("power", "unknown")
-        return power == "on"
+        return data.get("power") == "on"
 
     @property
     def preset_mode(self):
-        """Return the current preset mode."""
+        """Return the current preset mode, or None if unknown."""
         data = self.coordinator.data or {}
-        return data.get("fan_speed", "unknown")
+        mode = data.get("fan_speed")
+        return mode if mode in PRESET_MODES else None
 
     @property
     def extra_state_attributes(self):

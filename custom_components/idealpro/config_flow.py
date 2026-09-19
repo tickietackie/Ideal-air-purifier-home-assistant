@@ -11,7 +11,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(self, user_input=None):
         errors = {}
         if user_input is not None:
-            host = user_input[CONF_HOST]
+            host = user_input[CONF_HOST].strip()
+            await self.async_set_unique_id(host)
+            self._abort_if_unique_id_configured()
             api = IdealProAPI(host)
             try:
                 raw = await api.async_handshake_and_read(timeout=2.0)

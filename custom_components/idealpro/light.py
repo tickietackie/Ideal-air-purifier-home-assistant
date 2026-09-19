@@ -4,6 +4,7 @@ from homeassistant.components.light import (
     LightEntity,
     ColorMode,
 )
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
@@ -17,7 +18,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
     async_add_entities([IdealProLight(api, coordinator)], True)
 
 
-class IdealProLight(LightEntity):
+class IdealProLight(CoordinatorEntity, LightEntity):
     """Representation of the Ideal Pro LED light with brightness control."""
 
     _attr_supported_color_modes = {ColorMode.BRIGHTNESS}
@@ -26,8 +27,8 @@ class IdealProLight(LightEntity):
     _attr_icon = "mdi:lightbulb"
 
     def __init__(self, api, coordinator):
+        super().__init__(coordinator)
         self._api = api
-        self._coordinator = coordinator
         self._attr_unique_id = f"idealpro_{api.host}_led"
 
     # -------------------------
@@ -35,32 +36,29 @@ class IdealProLight(LightEntity):
     # -------------------------
 
     @property
+    def _level(self) -> int:
+        """Return the current LED level as an int (0 if unknown)."""
+        data = self.coordinator.data or {}
+        try:
+            return int(data.get("led_level", 0))
+        except (ValueError, TypeError):
+            return 0
+
+    @property
     def is_on(self):
         """Return True if brightness > 0."""
-        data = self._coordinator.data or {}
-        level = data.get("led_level", 0)
-        try:
-            level = int(level)
-        except (ValueError, TypeError):
-            level = 0
-        return level > 0
+        return self._level > 0
 
     @property
     def brightness(self):
         """Return the LED brightness in HA's 0–255 range."""
-        data = self._coordinator.data or {}
-        level = data.get("led_level", 0)
-        try:
-            level = int(level)
-        except (ValueError, TypeError):
-            level = 0
         # scale 0–9 -> 0–255
-        return int(level * 255 / 9)
+        return int(self._level * 255 / 9)
 
     @property
     def extra_state_attributes(self):
         """Extra debug attributes."""
-        data = self._coordinator.data or {}
+        data = self.coordinator.data or {}
         return {
             "led_level": data.get("led_level"),
             "raw_status": data.get("raw", "")[:100],
@@ -81,13 +79,14 @@ class IdealProLight(LightEntity):
         
         if success:
             _LOGGER.debug("LED confirmed at level %d, updating UI", level)
-            self._coordinator.data["led_level"] = level
+            if self.coordinator.data is not None:
+                self.coordinator.data["led_level"] = level
             self.async_write_ha_state()
         else:
             _LOGGER.warning("Failed to set LED brightness to %d after retries", level)
 
         await asyncio.sleep(0.3)
-        await self._coordinator.async_request_refresh()
+        await self.coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
         """Turn the LED light off (set brightness to 0)."""
@@ -98,14 +97,11 @@ class IdealProLight(LightEntity):
         
         if success:
             _LOGGER.debug("LED confirmed OFF, updating UI")
-            self._coordinator.data["led_level"] = 0
+            if self.coordinator.data is not None:
+                self.coordinator.data["led_level"] = 0
             self.async_write_ha_state()
         else:
             _LOGGER.warning("Failed to turn LED off after retries")
 
         await asyncio.sleep(0.3)
-        await self._coordinator.async_request_refresh()
-
-    async def async_update(self):
-        """Ask coordinator to refresh device state."""
-        await self._coordinator.async_request_refresh()
+        await self.coordinator.async_request_refresh()

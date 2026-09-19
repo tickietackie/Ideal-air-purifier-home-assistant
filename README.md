@@ -17,42 +17,31 @@ This repository contains a custom Home Assistant integration for Ideal Pro devic
 
 This integration is designed for Ideal Pro devices (e.g., air purifiers like AP30, AP40, AP60, AP80, AP140) that communicate via TCP/IP on port `8899`. It relies on a "GD" handshake for status retrieval and an "ON" command for toggling power.
 
-## Installation (Home Assistant Custom Component)
+## Installation
 
-To install this integration, follow these steps:
+### Option 1: HACS (Recommended)
 
-1.  **Manual Installation**:
-    *   Create a folder named `ideal_pro` inside your Home Assistant `custom_components` directory.
-        *   The `custom_components` directory is typically located at `/config/custom_components/`. If it doesn't exist, create it.
-    *   Copy all files from the `Ideal-Pro-Home-Assistant` repository into the newly created `/config/custom_components/ideal_pro/` folder:
-        *   `__init__.py`
-        *   `api.py`
-        *   `config_flow.py`
-        *   `const.py`
-        *   `fan.py`
-        *   `switch.py`
-        *   `manifest.json` (if present)
-    *   The final structure should look like:
-        ```
-        <homeassistant_config_dir>/
-        └── custom_components/
-            └── ideal_pro/
-                ├── __init__.py
-                ├── api.py
-                ├── config_flow.py
-                ├── const.py
-                ├── fan.py
-                └── switch.py
-        ```
+1.  Open HACS in Home Assistant.
+2.  Go to **Integrations** > Top right menu (3 dots) > **Custom repositories**.
+3.  Add the URL of this repository.
+4.  Category: **Integration**.
+5.  Click **Add** -> **Download**.
+6.  Restart Home Assistant.
 
-2.  **Restart Home Assistant**: After placing the files, restart your Home Assistant instance to ensure the new component is loaded.
+### Option 2: Manual Installation
 
-3.  **Add Integration**:
-    *   In the Home Assistant frontend, navigate to `Configuration` -> `Integrations`.
-    *   Click the `+ Add Integration` button.
-    *   Search for "Ideal Pro" and select it from the list.
-    *   You will be prompted to enter the **IP address** of your Ideal Pro device.
-    *   Follow any further prompts to complete the setup.
+1.  Using the File Editor or SSH, go to your Home Assistant `config` directory.
+2.  Create a folder `custom_components/idealpro` if it doesn't exist.
+3.  Copy all files from the `custom_components/idealpro/` folder in this repository to that new directory.
+4.  Restart Home Assistant.
+
+### Configuration
+
+1.  In the Home Assistant frontend, navigate to **Settings** -> **Devices & Services**.
+2.  Click the **+ Add Integration** button.
+3.  Search for "Ideal Pro" and select it.
+4.  Enter the **IP address** of your device (port 8899 is default).
+5.  Submit.
 
 ## Usage
 
@@ -81,12 +70,19 @@ The `test/` directory contains useful scripts for testing device connectivity an
     *   Tests reliable power toggling with verification.
     *   Run: `python3 test/test_power.py` for interactve menu.
 
+3.  **Parser Unit Tests** (`test/test_parse_status.py`):
+    *   Validates `parse_status` against real status frames captured from a device (see `captures/`).
+    *   Run: `python3 test/test_parse_status.py` (also works with `pytest test/test_parse_status.py`).
+
 ### API Usage Example
 
-The `api.py` file provides the core asynchronous API.
+The `custom_components/idealpro/api.py` file provides the core asynchronous API.
 
 ```python
 import asyncio
+import sys
+
+sys.path.insert(0, "custom_components/idealpro")
 from api import IdealProAPI
 
 async def main():

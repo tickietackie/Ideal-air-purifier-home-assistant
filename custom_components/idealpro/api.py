@@ -1,18 +1,24 @@
 import asyncio
 import logging
 import re
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 _LOGGER = logging.getLogger(__name__)
 
 STATUS_RE = re.compile(r"\{(.+?)\}")
 
+# Timeout for establishing a TCP connection (seconds)
+CONNECT_TIMEOUT = 5.0
 # Maximum retries for state-aware commands
 MAX_RETRIES = 5
 # Delay between retry attempts (seconds)
 RETRY_DELAY = 0.5
 # Delay after sending toggle before checking state (device needs time to update)
 POST_TOGGLE_DELAY = 1.0
+# Delay between the GD handshake and a command sent on the same connection (seconds)
+COMMAND_PRE_DELAY = 0.2
+# Delay to let the device process a command before closing the connection (seconds)
+COMMAND_POST_DELAY = 0.1
 
 
 class IdealProAPI:
@@ -20,36 +26,64 @@ class IdealProAPI:
         self.host = host
         self.port = port
 
-    async def _open(self):
-        return await asyncio.wait_for(asyncio.open_connection(self.host, self.port), timeout=5.0)
+    async def _connect(self):
+        """Open a TCP connection to the device."""
+        return await asyncio.wait_for(
+            asyncio.open_connection(self.host, self.port), timeout=CONNECT_TIMEOUT
+        )
 
-    async def async_handshake_and_read(self, timeout: float = 2.0) -> Optional[str]:
-        """Connect, send GD handshake and read the status block (if any)."""
+    @staticmethod
+    async def _close(writer) -> None:
+        """Close a connection, ignoring errors during teardown."""
         try:
-            reader, writer = await asyncio.wait_for(
-                asyncio.open_connection(self.host, self.port), timeout=5.0
-            )
-        except (asyncio.TimeoutError, Exception) as err:
-            _LOGGER.debug("connect error: %s", err)
-            raise
+            writer.close()
+            await writer.wait_closed()
+        except Exception:
+            pass
 
+    @staticmethod
+    async def _read_status(reader, timeout: float) -> str:
+        """Read until a complete {...} status block arrives or timeout expires."""
+        data = b""
+        loop = asyncio.get_running_loop()
+        deadline = loop.time() + timeout
+        while b"}" not in data:
+            remaining = deadline - loop.time()
+            if remaining <= 0:
+                break
+            try:
+                chunk = await asyncio.wait_for(reader.read(1024), timeout=remaining)
+            except asyncio.TimeoutError:
+                break
+            if not chunk:
+                break
+            data += chunk
+        return data.decode(errors="ignore").strip()
+
+    async def _send(self, command: bytes) -> None:
+        """Send a command, prefixed by a GD handshake, on a fresh connection."""
+        _LOGGER.debug("Sending command: %s", command)
+        reader, writer = await self._connect()
         try:
             writer.write(b"GD")
             await writer.drain()
-            # small pause to let the device send its data
-            await asyncio.sleep(0.3)
-            try:
-                data = await asyncio.wait_for(reader.read(1024), timeout=timeout)
-            except asyncio.TimeoutError:
-                data = b""
-            text = data.decode(errors="ignore").strip() if data else ""
-            return text
+            await asyncio.sleep(COMMAND_PRE_DELAY)
+            writer.write(command)
+            await writer.drain()
+            # Wait a bit to ensure device processes the command
+            await asyncio.sleep(COMMAND_POST_DELAY)
         finally:
-            try:
-                writer.close()
-                await writer.wait_closed()
-            except Exception:
-                pass
+            await self._close(writer)
+
+    async def async_handshake_and_read(self, timeout: float = 2.0) -> Optional[str]:
+        """Connect, send GD handshake and read the status block (if any)."""
+        reader, writer = await self._connect()
+        try:
+            writer.write(b"GD")
+            await writer.drain()
+            return await self._read_status(reader, timeout)
+        finally:
+            await self._close(writer)
 
     async def async_get_power_state(self) -> Optional[str]:
         """
@@ -66,32 +100,8 @@ class IdealProAPI:
         return None
 
     async def async_toggle(self):
-        """
-        Send the toggle command (device uses 'ON' as toggle).
-        We still send the handshake first for reliability.
-        """
-        try:
-            reader, writer = await asyncio.wait_for(
-                asyncio.open_connection(self.host, self.port), timeout=5.0
-            )
-        except (asyncio.TimeoutError, Exception) as err:
-            _LOGGER.debug("connect error for toggle: %s", err)
-            raise
-
-        try:
-            writer.write(b"GD")
-            await writer.drain()
-            await asyncio.sleep(0.2)
-            writer.write(b"ON")
-            await writer.drain()
-            # Wait a bit to ensure device processes the command
-            await asyncio.sleep(0.1)
-        finally:
-            try:
-                writer.close()
-                await writer.wait_closed()
-            except Exception:
-                pass
+        """Send the toggle command (device uses 'ON' as toggle)."""
+        await self._send(b"ON")
 
     async def async_turn_on(self, max_retries: int = MAX_RETRIES) -> bool:
         """
@@ -115,6 +125,11 @@ class IdealProAPI:
             if current_state == "on":
                 _LOGGER.debug("Device already ON, no action needed")
                 return True
+            
+            if attempt > 0 and current_state not in ("on", "off"):
+                # State cannot be read reliably; don't keep toggling blindly
+                _LOGGER.warning("Power state unknown, stopping ON retries")
+                break
             
             # Device is off or unknown, send toggle
             _LOGGER.debug("Sending toggle command to turn ON")
@@ -168,6 +183,11 @@ class IdealProAPI:
                 _LOGGER.debug("Device already OFF, no action needed")
                 return True
             
+            if attempt > 0 and current_state not in ("on", "off"):
+                # State cannot be read reliably; don't keep toggling blindly
+                _LOGGER.warning("Power state unknown, stopping OFF retries")
+                break
+            
             # Device is on or unknown, send toggle
             _LOGGER.debug("Sending toggle command to turn OFF")
             try:
@@ -214,7 +234,7 @@ class IdealProAPI:
         """
 
         _LOGGER.debug("Start parsing status: %r", raw)
-        out: Dict[str, any] = {"raw": raw, "power": "unknown", "fan_speed": "unknown"}
+        out: Dict[str, Any] = {"raw": raw, "power": "unknown", "fan_speed": "unknown"}
 
         if not raw:
             _LOGGER.error("Raw input missing, cannot parse status.")
@@ -296,30 +316,7 @@ class IdealProAPI:
         if not 0 <= level <= 9:
             raise ValueError(f"Brightness level must be 0–9, got {level}")
 
-        try:
-            reader, writer = await asyncio.wait_for(
-                asyncio.open_connection(self.host, self.port), timeout=5.0
-            )
-        except (asyncio.TimeoutError, Exception) as err:
-            _LOGGER.debug("connect error for brightness: %s", err)
-            raise
-
-        try:
-            writer.write(b"GD")
-            await writer.drain()
-            await asyncio.sleep(0.2)
-            cmd = f"D{level}".encode()
-            _LOGGER.debug("Sending brightness command: %s", cmd)
-            writer.write(cmd)
-            await writer.drain()
-            # Wait a bit to ensure device processes the command
-            await asyncio.sleep(0.1)
-        finally:
-            try:
-                writer.close()
-                await writer.wait_closed()
-            except Exception:
-                pass
+        await self._send(f"D{level}".encode())
 
     async def async_get_led_level(self) -> Optional[int]:
         """
@@ -429,31 +426,7 @@ class IdealProAPI:
         if mode not in self.FAN_SPEED_COMMANDS:
             raise ValueError(f"Invalid fan speed mode: {mode}. Valid modes: {list(self.FAN_SPEED_COMMANDS.keys())}")
 
-        cmd = self.FAN_SPEED_COMMANDS[mode]
-        
-        try:
-            reader, writer = await asyncio.wait_for(
-                asyncio.open_connection(self.host, self.port), timeout=5.0
-            )
-        except (asyncio.TimeoutError, Exception) as err:
-            _LOGGER.debug("connect error for fan speed: %s", err)
-            raise
-
-        try:
-            writer.write(b"GD")
-            await writer.drain()
-            await asyncio.sleep(0.2)
-            _LOGGER.debug("Sending fan speed command: %s", cmd)
-            writer.write(cmd)
-            await writer.drain()
-            # Wait a bit to ensure device processes the command
-            await asyncio.sleep(0.1)
-        finally:
-            try:
-                writer.close()
-                await writer.wait_closed()
-            except Exception:
-                pass
+        await self._send(self.FAN_SPEED_COMMANDS[mode])
 
     # All modes are now verifiable from status response:
     # MQ=quiet, M1/M2/M3=speed_1/2/3 (MANUAL), A1/A2/A3=auto (AUTO), MT=turbo

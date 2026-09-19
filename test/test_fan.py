@@ -21,8 +21,15 @@ import asyncio
 import sys
 import os
 
-# Add parent directory to path to import the api module
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add custom_components/idealpro to path to import the api module
+sys.path.insert(
+    0,
+    os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "custom_components",
+        "idealpro",
+    ),
+)
 
 from api import IdealProAPI
 

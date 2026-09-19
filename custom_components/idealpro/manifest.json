@@ -1,0 +1,12 @@
+{
+  "domain": "idealpro",
+  "name": "Ideal Pro",
+  "version": "1.1.0",
+  "documentation": "https://github.com/tickietackie/Ideal-air-purifier-home-assistant",
+  "issue_tracker": "https://github.com/tickietackie/Ideal-air-purifier-home-assistant/issues",
+  "requirements": [],
+  "codeowners": ["@tickietackie"],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "integration_type": "device"
+}
