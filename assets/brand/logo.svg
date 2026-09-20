@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="256" viewBox="0 0 820 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+    <path fill="#fff" fill-rule="evenodd" d="M116 76h24a32 32 0 0 1 32 32v56a32 32 0 0 1-32 32h-24a32 32 0 0 1-32-32v-56a32 32 0 0 1 32-32ZM128 102a26 26 0 1 0 0 52 26 26 0 1 0 0-52Z"/>
+    <g fill="#fff">
+      <path d="M128 128c-5-8-5-16 0-22 5 6 5 14 0 22Z"/>
+      <path d="M128 128c-5-8-5-16 0-22 5 6 5 14 0 22Z" transform="rotate(120 128 128)"/>
+      <path d="M128 128c-5-8-5-16 0-22 5 6 5 14 0 22Z" transform="rotate(240 128 128)"/>
+    </g>
+    <g fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round">
+      <path d="M70 104c-14 19-14 29 0 48"/>
+      <path d="M186 104c14 19 14 29 0 48"/>
+    </g>
+    <g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".55">
+      <path d="M46 116c-9 12-9 12 0 24"/>
+      <path d="M210 116c9 12 9 12 0 24"/>
+    </g>
+  </g>
+  <text x="312" y="166" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-3" fill="#0F172A">Ideal Pro</text>
+</svg>
