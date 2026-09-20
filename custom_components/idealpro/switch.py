@@ -3,7 +3,7 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.core import callback
 import asyncio
 import logging
-from .const import DOMAIN
+from .const import DOMAIN, build_device_info
 
 _LOGGER = logging.getLogger(__name__)   
 
@@ -11,14 +11,16 @@ async def async_setup_entry(hass, entry, async_add_entities):
     data = hass.data[DOMAIN][entry.entry_id]
     api = data["api"]
     coordinator = data["coordinator"]
-    async_add_entities([IdealProSwitch(api, coordinator)], True)
+    device_info = build_device_info(api.host)
+    async_add_entities([IdealProSwitch(api, coordinator, device_info)], True)
 
 class IdealProSwitch(CoordinatorEntity, SwitchEntity):
-    def __init__(self, api, coordinator):
+    def __init__(self, api, coordinator, device_info):
         super().__init__(coordinator)
         self._api = api
         self._attr_name = "Ideal Pro"
         self._attr_unique_id = f"idealpro_{api.host}"
+        self._attr_device_info = device_info
 
     @property
     def is_on(self):

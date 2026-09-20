@@ -3,7 +3,7 @@ import asyncio
 import logging
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
-from .const import DOMAIN
+from .const import DOMAIN, build_device_info
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -30,7 +30,8 @@ async def async_setup_entry(hass, entry, async_add_entities):
     data = hass.data[DOMAIN][entry.entry_id]
     api = data["api"]
     coordinator = data["coordinator"]
-    async_add_entities([IdealProFan(api, coordinator)], True)
+    device_info = build_device_info(api.host)
+    async_add_entities([IdealProFan(api, coordinator, device_info)], True)
 
 
 class IdealProFan(CoordinatorEntity, FanEntity):
@@ -41,11 +42,12 @@ class IdealProFan(CoordinatorEntity, FanEntity):
     _attr_name = "Ideal Pro Fan"
     _attr_icon = "mdi:fan"
 
-    def __init__(self, api, coordinator):
+    def __init__(self, api, coordinator, device_info):
         """Initialize the fan."""
         super().__init__(coordinator)
         self._api = api
         self._attr_unique_id = f"idealpro_{api.host}_fan"
+        self._attr_device_info = device_info
 
     # -------------------------
     # --- STATE PROPERTIES ---

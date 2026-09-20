@@ -5,7 +5,7 @@ from homeassistant.components.light import (
     ColorMode,
 )
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
-from .const import DOMAIN
+from .const import DOMAIN, build_device_info
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -15,7 +15,8 @@ async def async_setup_entry(hass, entry, async_add_entities):
     data = hass.data[DOMAIN][entry.entry_id]
     api = data["api"]
     coordinator = data["coordinator"]
-    async_add_entities([IdealProLight(api, coordinator)], True)
+    device_info = build_device_info(api.host)
+    async_add_entities([IdealProLight(api, coordinator, device_info)], True)
 
 
 class IdealProLight(CoordinatorEntity, LightEntity):
@@ -26,10 +27,11 @@ class IdealProLight(CoordinatorEntity, LightEntity):
     _attr_name = "Ideal Pro LED"
     _attr_icon = "mdi:lightbulb"
 
-    def __init__(self, api, coordinator):
+    def __init__(self, api, coordinator, device_info):
         super().__init__(coordinator)
         self._api = api
         self._attr_unique_id = f"idealpro_{api.host}_led"
+        self._attr_device_info = device_info
 
     # -------------------------
     # --- STATE PROPERTIES ---

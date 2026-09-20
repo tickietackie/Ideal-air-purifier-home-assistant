@@ -9,7 +9,7 @@ from homeassistant.components.sensor import (
 from homeassistant.const import EntityCategory
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import DOMAIN, build_device_info
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -19,13 +19,14 @@ async def async_setup_entry(hass, entry, async_add_entities):
     data = hass.data[DOMAIN][entry.entry_id]
     api = data["api"]
     coordinator = data["coordinator"]
+    device_info = build_device_info(api.host)
     async_add_entities(
         [
-            IdealProPM25Sensor(api, coordinator),
-            IdealProFanRPMSensor(api, coordinator),
-            IdealProAutoStageSensor(api, coordinator),
-            IdealProBoostSensor(api, coordinator),
-            IdealProOperatingHoursSensor(api, coordinator),
+            IdealProPM25Sensor(api, coordinator, device_info),
+            IdealProFanRPMSensor(api, coordinator, device_info),
+            IdealProAutoStageSensor(api, coordinator, device_info),
+            IdealProBoostSensor(api, coordinator, device_info),
+            IdealProOperatingHoursSensor(api, coordinator, device_info),
         ],
         True,
     )
@@ -44,10 +45,11 @@ class IdealProPM25Sensor(CoordinatorEntity, SensorEntity):
     _attr_icon = "mdi:blur"
     _attr_name = "Ideal Pro PM2.5"
 
-    def __init__(self, api, coordinator):
+    def __init__(self, api, coordinator, device_info):
         super().__init__(coordinator)
         self._api = api
         self._attr_unique_id = f"idealpro_{api.host}_pm25"
+        self._attr_device_info = device_info
 
     @property
     def native_value(self):
@@ -75,10 +77,11 @@ class IdealProDiagnosticSensor(CoordinatorEntity, SensorEntity):
     _attr_entity_category = EntityCategory.DIAGNOSTIC
     _field = ""
 
-    def __init__(self, api, coordinator):
+    def __init__(self, api, coordinator, device_info):
         super().__init__(coordinator)
         self._api = api
         self._attr_unique_id = f"idealpro_{api.host}_{self._field.lower()}"
+        self._attr_device_info = device_info
 
     def _raw(self):
         data = self.coordinator.data or {}
