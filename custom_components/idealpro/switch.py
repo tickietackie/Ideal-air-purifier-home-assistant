@@ -25,7 +25,14 @@ class IdealProSwitch(CoordinatorEntity, SwitchEntity):
     @property
     def is_on(self):
         data = self.coordinator.data or {}
-        return data.get("power") == "on"
+        power = data.get("power")
+        if power == "off":
+            return False
+        if power == "on":
+            # any active mode: auto or manual
+            return True
+        # None -> HA renders "unknown" instead of showing off
+        return None
 
     async def async_turn_on(self, **kwargs):
         _LOGGER.debug("Starting turning on device...")

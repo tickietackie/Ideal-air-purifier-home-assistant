@@ -56,6 +56,7 @@ def test_power_off():
     status = API.parse_status(STATUS_OFF)
     assert status["power"] == "off"
     assert status["fan_speed"] == "off"
+    assert status["speed_level"] == 0
     assert status["led_level"] == 0
 
 
@@ -63,24 +64,38 @@ def test_auto_mode():
     status = API.parse_status(STATUS_AUTO_2)
     assert status["power"] == "on"
     assert status["fan_speed"] == "auto"
+    assert status["speed_level"] == 3  # A2 = Auto currently running at speed 2
     assert status["led_level"] == 1
 
 
+def test_auto_live_speed_stages():
+    for stage, level in ((1, 2), (2, 3), (3, 4)):
+        status = API.parse_status(f"{{A{stage},FO,C00000,S2,KI,L9}}")
+        assert status["fan_speed"] == "auto"
+        assert status["speed_level"] == level
+
+
 def test_manual_modes():
-    assert API.parse_status(STATUS_MANUAL_1)["fan_speed"] == "speed_1"
-    assert API.parse_status(STATUS_MANUAL_3)["fan_speed"] == "speed_3"
+    manual_1 = API.parse_status(STATUS_MANUAL_1)
+    manual_3 = API.parse_status(STATUS_MANUAL_3)
+    assert manual_1["fan_speed"] == "speed_1"
+    assert manual_1["speed_level"] == 2
+    assert manual_3["fan_speed"] == "speed_3"
+    assert manual_3["speed_level"] == 4
 
 
 def test_turbo_mode():
     status = API.parse_status(STATUS_TURBO)
     assert status["power"] == "on"
     assert status["fan_speed"] == "turbo"
+    assert status["speed_level"] == 5
 
 
 def test_quiet_mode():
     status = API.parse_status("{MQ,FO,C00000,S1,KI,L9,HD5N1}")
     assert status["power"] == "on"
     assert status["fan_speed"] == "quiet"
+    assert status["speed_level"] == 1
     assert status["led_level"] == 5
 
 
@@ -118,6 +133,7 @@ def test_unknown_input():
         status = API.parse_status(raw)
         assert status["power"] == "unknown", raw
         assert status["fan_speed"] == "unknown", raw
+        assert status["speed_level"] is None, raw
 
 
 def test_fan_speed_command_mapping():

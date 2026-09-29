@@ -133,12 +133,17 @@ class IdealProAPI:
         """
         Query current power state.
         Returns: "on", "off", or None if unable to determine.
+
+        None (instead of "unknown") is important: callers use it to decide
+        whether toggling is safe, and a read failure must never be treated
+        as a confirmed device state.
         """
         try:
             raw = await self._handshake_and_read()
             if raw:
                 status = self.parse_status(raw)
-                return status.get("power")
+                power = status.get("power")
+                return power if power in ("on", "off") else None
         except Exception as err:
             _LOGGER.debug("Error getting power state: %s", err)
         return None
@@ -158,6 +163,7 @@ class IdealProAPI:
 
     async def _turn_on(self, max_retries: int = MAX_RETRIES) -> bool:
         """Turn the device ON with state verification (lock must be held)."""
+        toggles_sent = 0
         for attempt in range(max_retries):
             _LOGGER.debug("async_turn_on attempt %d/%d", attempt + 1, max_retries)
 
@@ -169,38 +175,66 @@ class IdealProAPI:
                 _LOGGER.debug("Device already ON, no action needed")
                 return True
 
-            if attempt > 0 and current_state not in ("on", "off"):
-                # State cannot be read reliably; don't keep toggling blindly
-                _LOGGER.warning("Power state unknown, stopping ON retries")
-                break
+            if current_state == "off":
+                _LOGGER.debug("Sending toggle command to turn ON")
+                try:
+                    await self._execute(b"ON")
+                    toggles_sent += 1
+                except Exception as err:
+                    _LOGGER.warning("Toggle command failed: %s", err)
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(RETRY_DELAY)
+                    continue
 
-            # Device is off or unknown, send toggle
-            _LOGGER.debug("Sending toggle command to turn ON")
-            try:
-                await self._execute(b"ON")
-            except Exception as err:
-                _LOGGER.warning("Toggle command failed: %s", err)
-                if attempt < max_retries - 1:
+                # Wait for device to process, then verify
+                await asyncio.sleep(POST_TOGGLE_DELAY)
+                new_state = await self._get_power_state()
+                _LOGGER.debug("State after toggle: %s", new_state)
+
+                if new_state == "on":
+                    _LOGGER.debug("Successfully turned ON")
+                    return True
+
+                # Verify read failed (None) - do NOT blind-toggle again on the
+                # same connection cycle: a second toggle would flip the device
+                # back OFF. Re-check once on the next attempt instead.
+                if new_state is None:
+                    _LOGGER.warning("State read inconclusive after toggle; re-checking")
                     await asyncio.sleep(RETRY_DELAY)
-                continue
-
-            # Wait for device to process
-            await asyncio.sleep(POST_TOGGLE_DELAY)
-
-            # Verify state changed
-            new_state = await self._get_power_state()
-            _LOGGER.debug("State after toggle: %s", new_state)
-
-            if new_state == "on":
-                _LOGGER.debug("Successfully turned ON")
+                    new_state = await self._get_power_state()
+                    if new_state == "on":
+                        _LOGGER.debug("Successfully turned ON (re-check)")
+                        return True
+                    if new_state == "off" and toggles_sent:
+                        # Device genuinely did not change; try one more toggle
+                        _LOGGER.warning("Device did not turn ON, will retry")
+                        continue
+                    if new_state is None:
+                        _LOGGER.warning("Power state unreadable after ON toggle, assuming success")
+                        return True
+                else:
+                    _LOGGER.warning("State verification failed, expected ON but got %s", new_state)
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(RETRY_DELAY)
+            else:
+                # State cannot be read; toggle exactly once and trust the command
+                # instead of flip-flopping the device with repeated toggles.
+                _LOGGER.warning("Power state unknown (%s), sending single toggle to turn ON", current_state)
+                try:
+                    await self._execute(b"ON")
+                    toggles_sent += 1
+                except Exception as err:
+                    _LOGGER.warning("Toggle command failed: %s", err)
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(RETRY_DELAY)
+                    continue
+                await asyncio.sleep(POST_TOGGLE_DELAY)
+                # Never send a second toggle when state was unreadable:
+                # ON is an in-place toggle and would just turn the device off again.
+                _LOGGER.warning("Power state unreadable, trusting single ON toggle")
                 return True
 
-            # State didn't change as expected, retry
-            _LOGGER.warning("State verification failed, expected ON but got %s", new_state)
-            if attempt < max_retries - 1:
-                await asyncio.sleep(RETRY_DELAY)
-
-        _LOGGER.error("Failed to turn ON after %d attempts", max_retries)
+        _LOGGER.error("Failed to turn ON after %d attempts (toggles sent: %d)", max_retries, toggles_sent)
         return False
 
     async def async_turn_on(self, max_retries: int = MAX_RETRIES) -> bool:
@@ -220,6 +254,7 @@ class IdealProAPI:
 
     async def _turn_off(self, max_retries: int = MAX_RETRIES) -> bool:
         """Turn the device OFF with state verification (lock must be held)."""
+        toggles_sent = 0
         for attempt in range(max_retries):
             _LOGGER.debug("async_turn_off attempt %d/%d", attempt + 1, max_retries)
 
@@ -231,38 +266,66 @@ class IdealProAPI:
                 _LOGGER.debug("Device already OFF, no action needed")
                 return True
 
-            if attempt > 0 and current_state not in ("on", "off"):
-                # State cannot be read reliably; don't keep toggling blindly
-                _LOGGER.warning("Power state unknown, stopping OFF retries")
-                break
+            if current_state == "on":
+                _LOGGER.debug("Sending toggle command to turn OFF")
+                try:
+                    await self._execute(b"ON")
+                    toggles_sent += 1
+                except Exception as err:
+                    _LOGGER.warning("Toggle command failed: %s", err)
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(RETRY_DELAY)
+                    continue
 
-            # Device is on or unknown, send toggle
-            _LOGGER.debug("Sending toggle command to turn OFF")
-            try:
-                await self._execute(b"ON")
-            except Exception as err:
-                _LOGGER.warning("Toggle command failed: %s", err)
-                if attempt < max_retries - 1:
+                # Wait for device to process, then verify
+                await asyncio.sleep(POST_TOGGLE_DELAY)
+                new_state = await self._get_power_state()
+                _LOGGER.debug("State after toggle: %s", new_state)
+
+                if new_state == "off":
+                    _LOGGER.debug("Successfully turned OFF")
+                    return True
+
+                # Verify read failed (None) - do NOT blind-toggle again on the
+                # same connection cycle: a second toggle would flip the device
+                # back ON. Re-check once on the next attempt instead.
+                if new_state is None:
+                    _LOGGER.warning("State read inconclusive after toggle; re-checking")
                     await asyncio.sleep(RETRY_DELAY)
-                continue
-
-            # Wait for device to process
-            await asyncio.sleep(POST_TOGGLE_DELAY)
-
-            # Verify state changed
-            new_state = await self._get_power_state()
-            _LOGGER.debug("State after toggle: %s", new_state)
-
-            if new_state == "off":
-                _LOGGER.debug("Successfully turned OFF")
+                    new_state = await self._get_power_state()
+                    if new_state == "off":
+                        _LOGGER.debug("Successfully turned OFF (re-check)")
+                        return True
+                    if new_state == "on" and toggles_sent:
+                        # Device genuinely did not change; try one more toggle
+                        _LOGGER.warning("Device did not turn OFF, will retry")
+                        continue
+                    if new_state is None:
+                        _LOGGER.warning("Power state unreadable after OFF toggle, assuming success")
+                        return True
+                else:
+                    _LOGGER.warning("State verification failed, expected OFF but got %s", new_state)
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(RETRY_DELAY)
+            else:
+                # State cannot be read; toggle exactly once and trust the command
+                # instead of flip-flopping the device with repeated toggles.
+                _LOGGER.warning("Power state unknown (%s), sending single toggle to turn OFF", current_state)
+                try:
+                    await self._execute(b"ON")
+                    toggles_sent += 1
+                except Exception as err:
+                    _LOGGER.warning("Toggle command failed: %s", err)
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(RETRY_DELAY)
+                    continue
+                await asyncio.sleep(POST_TOGGLE_DELAY)
+                # Never send a second toggle when state was unreadable:
+                # ON is an in-place toggle and would just turn the device back on.
+                _LOGGER.warning("Power state unreadable, trusting single OFF toggle")
                 return True
 
-            # State didn't change as expected, retry
-            _LOGGER.warning("State verification failed, expected OFF but got %s", new_state)
-            if attempt < max_retries - 1:
-                await asyncio.sleep(RETRY_DELAY)
-
-        _LOGGER.error("Failed to turn OFF after %d attempts", max_retries)
+        _LOGGER.error("Failed to turn OFF after %d attempts (toggles sent: %d)", max_retries, toggles_sent)
         return False
 
     async def async_turn_off(self, max_retries: int = MAX_RETRIES) -> bool:
@@ -291,13 +354,19 @@ class IdealProAPI:
               "power": "on"/"off"/"unknown",
               "led_level": int(0–9), # brightness parsed from HDx...
               "fan_speed": "quiet"/"auto"/"speed_1"/"speed_2"/"speed_3"/"turbo"/"unknown",
+              "speed_level": 0–5 or None, # actual speed; auto uses its live A1/A2/A3 stage
               "body": "...",         # most recent {...} block
               ... other parsed tokens ...
             }
         """
 
         _LOGGER.debug("Start parsing status: %r", raw)
-        out: Dict[str, Any] = {"raw": raw, "power": "unknown", "fan_speed": "unknown"}
+        out: Dict[str, Any] = {
+            "raw": raw,
+            "power": "unknown",
+            "fan_speed": "unknown",
+            "speed_level": None,
+        }
 
         if not raw:
             _LOGGER.error("Raw input missing, cannot parse status.")
@@ -324,24 +393,33 @@ class IdealProAPI:
         if first.startswith("MQ"):
             out["power"] = "on"
             out["fan_speed"] = "quiet"
+            out["speed_level"] = 1
         elif first.startswith("MT"):
             out["power"] = "on"
             out["fan_speed"] = "turbo"
+            out["speed_level"] = 5
         elif first.startswith("M1"):
             out["power"] = "on"
             out["fan_speed"] = "speed_1"
+            out["speed_level"] = 2
         elif first.startswith("M2"):
             out["power"] = "on"
             out["fan_speed"] = "speed_2"
+            out["speed_level"] = 3
         elif first.startswith("M3"):
             out["power"] = "on"
             out["fan_speed"] = "speed_3"
+            out["speed_level"] = 4
         elif first.startswith(("A1", "A2", "A3")):
             out["power"] = "on"
             out["fan_speed"] = "auto"
+            # The A digit is the live auto speed stage; S is the configured
+            # auto stage and can retain its value while running manually.
+            out["speed_level"] = int(first[1]) + 1
         elif first.startswith(("A-", "A0")):
             out["power"] = "off"
             out["fan_speed"] = "off"
+            out["speed_level"] = 0
         else:
             out["power"] = "unknown"
             out["fan_speed"] = "unknown"
@@ -397,7 +475,8 @@ class IdealProAPI:
             raw = await self._handshake_and_read()
             if raw:
                 status = self.parse_status(raw)
-                return status.get("led_level")
+                level = status.get("led_level")
+                return level if isinstance(level, int) else None
         except Exception as err:
             _LOGGER.debug("Error getting LED level: %s", err)
         return None
@@ -496,7 +575,8 @@ class IdealProAPI:
             raw = await self._handshake_and_read()
             if raw:
                 status = self.parse_status(raw)
-                return status.get("fan_speed")
+                mode = status.get("fan_speed")
+                return mode if mode in self.VERIFIABLE_MODES else None
         except Exception as err:
             _LOGGER.debug("Error getting fan speed: %s", err)
         return None
@@ -530,6 +610,17 @@ class IdealProAPI:
         """Set fan speed with state verification (lock must be held)."""
         if target_mode not in self.FAN_SPEED_COMMANDS:
             raise ValueError(f"Invalid fan speed mode: {target_mode}. Valid modes: {list(self.FAN_SPEED_COMMANDS.keys())}")
+
+        # The device ignores fan mode commands while it is powered off, so
+        # power it on first (this restores the last mode, which we override).
+        # Without this, picking a mode on a switch-like HomeKit accessory
+        # appears to do nothing.
+        current_power = await self._get_power_state()
+        if current_power == "off":
+            _LOGGER.debug("Device is off, powering on before setting fan mode %s", target_mode)
+            if not await self._turn_on():
+                _LOGGER.warning("Failed to power on device for fan mode %s", target_mode)
+                return False
 
         # For unverifiable modes (auto, turbo), just send command and assume success
         if target_mode in self.UNVERIFIABLE_MODES:

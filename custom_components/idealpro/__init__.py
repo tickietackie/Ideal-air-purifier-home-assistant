@@ -18,9 +18,15 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     async def async_update():
         try:
             raw = await api.async_handshake_and_read()
-            if raw is None:
-                raise UpdateFailed("no data")
-            return api.parse_status(raw)
+            status = api.parse_status(raw or "")
+            # An unreadable status must never overwrite the last known state:
+            # it would flip the switch to "off" until the next good poll.
+            if status.get("power") == "unknown":
+                raise UpdateFailed(f"unreadable status: {raw!r}"
+                )
+            return status
+        except UpdateFailed:
+            raise
         except Exception as err:
             raise UpdateFailed(err)
 

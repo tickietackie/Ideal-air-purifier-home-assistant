@@ -50,9 +50,12 @@ Once configured, the following entities will appear in your Home Assistant insta
 
 *   **Fan Entity** (`fan.ideal_pro_fan`):
     *   Turn on/off.
-    *   Set preset modes: `Auto`, `Quiet`, `Turbo`, `Speed 1-3`.
+    *   Select the `Auto` preset; setting a slider speed switches to Manual.
+    *   Set the fan speed with a five-step slider: `Quiet`, `Speed 1-3`, and `Turbo`.
+    *   HomeKit uses its native Auto/Manual control rather than creating a switch tile for every preset.
+    *   In Auto mode, the speed slider follows the device's current Auto stage.
 *   **Switch Entity** (`switch.ideal_pro`):
-    *   Simple on/off toggle for the main power.
+    *   Main power toggle: on for any running mode (including Auto), off when the purifier is off.
 *   **PM2.5 Sensor** (`sensor.ideal_pro_pm2_5`):
     *   Current PM2.5 concentration in µg/m³ from the purifier's particle sensor.
     *   Extra attributes: raw gas sensor value and full raw status.
@@ -70,18 +73,36 @@ The `test/` directory contains useful scripts for testing device connectivity an
 
 ### Testing Tools
 
-1.  **Fan Control Test** (`test/test_fan.py`):
+1.  **All offline tests** (`test/run_all.py`):
+    *   Runs every unit test below in one go (no device or network needed).
+    *   Run: `python3 test/run_all.py`.
+
+2.  **Fan Control Test** (`test/test_fan.py`):
     *   Interactive tool to test all fan speeds and read status.
     *   Run: `python3 test/test_fan.py` for an interactive menu.
     *   Run: `python3 test/test_fan.py status` to see just the current status.
 
-2.  **Power Control Test** (`test/test_power.py`):
+3.  **Power Control Test** (`test/test_power.py`):
     *   Tests reliable power toggling with verification.
     *   Run: `python3 test/test_power.py` for interactve menu.
 
-3.  **Parser Unit Tests** (`test/test_parse_status.py`):
+4.  **Parser Unit Tests** (`test/test_parse_status.py`):
     *   Validates `parse_status` against real status frames captured from a device (see `captures/`).
     *   Run: `python3 test/test_parse_status.py` (also works with `pytest test/test_parse_status.py`).
+
+5.  **Power State Machine Tests** (`test/test_api_power.py`):
+    *   Offline tests of on/off toggling against a simulated device: single-toggle
+      guarantee, unreadable-state handling and last-mode restore.
+
+6.  **Mode & Brightness Tests** (`test/test_api_modes.py`):
+    *   Offline tests that mode commands power the device on first, plus
+      verification/retry behavior for fan speeds and LED brightness.
+
+7.  **Entity Tests** (`test/test_entities.py`):
+    *   Offline tests for every exposed entity (switch, fan, light, sensors)
+      using minimal Home Assistant stubs; covers state mapping, percentage
+      conversion and HomeKit-relevant behavior.
+
 
 ### API Usage Example
 
