@@ -24,6 +24,9 @@ COMMAND_POST_DELAY = 0.5
 # Closing a socket that still has unread data makes the OS send a TCP RST,
 # which can make the device drop the command that was just sent.
 CLOSE_DRAIN_TIMEOUT = 0.2
+# Rapid-fire commands (slider drags, HomeKit bursts) are held for this long so
+# they can collapse into their final target before touching the device.
+COMMAND_DEBOUNCE = 0.1
 
 
 class IdealProAPI:
@@ -33,6 +36,16 @@ class IdealProAPI:
         # The device handles requests sequentially; serialize access so that
         # commands, verification reads and coordinator polls cannot interleave.
         self._lock = asyncio.Lock()
+        # Pending level commands, one slot per control channel ("power",
+        # "speed", "brightness"). A newer command for the same channel
+        # replaces (and resolves) one that has not been applied yet, so a
+        # burst from a slider drag collapses into its final target instead of
+        # replaying every intermediate step on the device. Each entry keeps a
+        # global sequence number so the surviving targets are still applied
+        # in the order the user requested them (e.g. off, then speed).
+        self._pending: Dict[str, Any] = {}
+        self._worker: Optional[asyncio.Task] = None
+        self._command_seq = 0
 
     async def _connect(self):
         """Open a TCP connection to the device."""
@@ -161,6 +174,79 @@ class IdealProAPI:
         async with self._lock:
             await self._execute(b"ON")
 
+    # -------------------------
+    # --- COMMAND SCHEDULER ---
+    # -------------------------
+    #
+    # Power, fan speed and brightness are level controls ("be in this state"),
+    # so when several commands for the same channel arrive in a burst only the
+    # last one needs to reach the device. Commands are queued per channel and
+    # applied by a single worker that holds the device lock, which also
+    # guarantees that verification reads and the coordinator poll can never
+    # interleave with a command.
+
+    async def _enqueue_command(
+        self, channel: str, target: Any, max_retries: int = MAX_RETRIES
+    ) -> bool:
+        """Queue a level command; a newer command for the channel wins.
+
+        Returns True when this command (or the newer one that superseded it)
+        has been applied. A superseded command is resolved immediately so its
+        caller does not have to wait for a state change it no longer wants.
+        """
+        loop = asyncio.get_running_loop()
+        future = loop.create_future()
+        previous = self._pending.get(channel)
+        self._command_seq += 1
+        self._pending[channel] = (target, future, max_retries, self._command_seq)
+        if previous is not None and not previous[1].done():
+            _LOGGER.debug("Command %s=%s superseded by %s", channel, previous[0], target)
+            previous[1].set_result(True)
+        if self._worker is None or self._worker.done():
+            self._worker = loop.create_task(self._command_worker())
+        return await future
+
+    async def _command_worker(self) -> None:
+        """Apply the latest command per channel until the queue drains."""
+        try:
+            while True:
+                # Give a rapid burst a moment to collapse into its final target.
+                await asyncio.sleep(COMMAND_DEBOUNCE)
+                async with self._lock:
+                    if not self._pending:
+                        self._worker = None
+                        return
+                    pending = self._pending
+                    self._pending = {}
+                    # Apply the surviving targets in the order the user made
+                    # them, so "speed, off, speed" really ends at speed.
+                    ordered = sorted(pending.items(), key=lambda item: item[1][3])
+                    for channel, (target, future, max_retries, _seq) in ordered:
+                        if future.done():
+                            continue
+                        try:
+                            result = await self._apply_command(channel, target, max_retries)
+                        except Exception as err:  # never kill the worker
+                            _LOGGER.warning("Command %s=%s failed: %s", channel, target, err)
+                            result = False
+                        if not future.done():
+                            future.set_result(result)
+        except asyncio.CancelledError:
+            self._worker = None
+            raise
+
+    async def _apply_command(self, channel: str, target: Any, max_retries: int) -> bool:
+        """Run one queued command (called with the lock held)."""
+        if channel == "power":
+            if target:
+                return await self._turn_on(max_retries)
+            return await self._turn_off(max_retries)
+        if channel == "speed":
+            return await self._set_fan_speed_verified(target, max_retries)
+        if channel == "brightness":
+            return await self._set_brightness_verified(target, max_retries)
+        raise ValueError(f"Unknown command channel: {channel}")
+
     async def _turn_on(self, max_retries: int = MAX_RETRIES) -> bool:
         """Turn the device ON with state verification (lock must be held)."""
         toggles_sent = 0
@@ -247,10 +333,12 @@ class IdealProAPI:
         3. Verifies the state changed to ON
         4. Retries if necessary
 
-        Returns: True if device is confirmed ON, False otherwise
+        Rapid bursts are coalesced: only the last power intent is applied.
+
+        Returns: True if device is confirmed ON (or superseded by a newer
+        power command), False otherwise
         """
-        async with self._lock:
-            return await self._turn_on(max_retries)
+        return await self._enqueue_command("power", True, max_retries)
 
     async def _turn_off(self, max_retries: int = MAX_RETRIES) -> bool:
         """Turn the device OFF with state verification (lock must be held)."""
@@ -338,10 +426,12 @@ class IdealProAPI:
         3. Verifies the state changed to OFF
         4. Retries if necessary
 
-        Returns: True if device is confirmed OFF, False otherwise
+        Rapid bursts are coalesced: only the last power intent is applied.
+
+        Returns: True if device is confirmed OFF (or superseded by a newer
+        power command), False otherwise
         """
-        async with self._lock:
-            return await self._turn_off(max_retries)
+        return await self._enqueue_command("power", False, max_retries)
 
     def parse_status(self, raw: str) -> Dict:
         """
@@ -544,15 +634,19 @@ class IdealProAPI:
         2. Only sends command if current level differs from target
         3. Verifies the level changed correctly
         4. Retries if necessary
+
+        Rapid bursts are coalesced: only the last brightness intent is applied.
         
         Args:
             target_level: Target brightness level (0-9)
             max_retries: Maximum number of retry attempts
         
-        Returns: True if LED level is confirmed at target, False otherwise
+        Returns: True if LED level is confirmed at target (or superseded by a
+        newer brightness command), False otherwise
         """
-        async with self._lock:
-            return await self._set_brightness_verified(target_level, max_retries)
+        if not 0 <= target_level <= 9:
+            raise ValueError(f"Brightness level must be 0–9, got {target_level}")
+        return await self._enqueue_command("brightness", target_level, max_retries)
 
     # Fan speed mode mapping: internal name -> command bytes
     FAN_SPEED_COMMANDS = {
@@ -690,12 +784,19 @@ class IdealProAPI:
         2. Only sends command if current speed differs from target
         3. Verifies the speed changed correctly
         4. Retries if necessary
+
+        Rapid bursts are coalesced: only the last speed intent is applied.
         
         Args:
             target_mode: Target fan speed mode ("quiet", "auto", "speed_1", "speed_2", "speed_3", "turbo")
             max_retries: Maximum number of retry attempts
         
-        Returns: True if fan speed command was sent successfully, False otherwise
+        Returns: True if fan speed is confirmed at target (or superseded by a
+        newer speed command), False otherwise
         """
-        async with self._lock:
-            return await self._set_fan_speed_verified(target_mode, max_retries)
+        if target_mode not in self.FAN_SPEED_COMMANDS:
+            raise ValueError(
+                f"Invalid fan speed mode: {target_mode}. "
+                f"Valid modes: {list(self.FAN_SPEED_COMMANDS.keys())}"
+            )
+        return await self._enqueue_command("speed", target_mode, max_retries)

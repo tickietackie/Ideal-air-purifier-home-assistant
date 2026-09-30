@@ -15,6 +15,7 @@ OFFLINE_TESTS = [
     "test_parse_status.py",
     "test_api_power.py",
     "test_api_modes.py",
+    "test_concurrency.py",
     "test_entities.py",
 ]
 

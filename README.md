@@ -103,6 +103,22 @@ The `test/` directory contains useful scripts for testing device connectivity an
       using minimal Home Assistant stubs; covers state mapping, percentage
       conversion and HomeKit-relevant behavior.
 
+8.  **Concurrency Tests** (`test/test_concurrency.py`):
+    *   Offline tests for rapid command bursts (slider drags, HomeKit
+      toggles): commands are serialized on the device connection, a burst
+      collapses into its final target per control channel, the last intent
+      wins in chronological order, and the power toggle is never
+      flip-flopped.
+
+### Rapid Commands
+
+Home Assistant can fire several service calls at once. The API keeps one
+pending target per control channel (power, fan speed, LED brightness) and
+applies the surviving targets in the order they were requested. The device
+therefore receives the final state of a burst instead of every intermediate
+step, while a state read or coordinator poll can never interleave with a
+command.
+
 
 ### API Usage Example
 

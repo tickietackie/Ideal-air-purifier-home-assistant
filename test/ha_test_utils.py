@@ -284,6 +284,12 @@ class FakeDevice:
         self.respond = True
         self.ignore_commands = set()
         self.command_filter = None
+        # Artificial device latency so concurrency tests can interleave
+        # commands deterministically (seconds; 0 keeps tests instant).
+        self.delay = 0.0
+        # Optional asyncio.Event set as soon as a status read starts; lets a
+        # test enqueue a follow-up command while a command is mid-flight.
+        self.status_event = None
 
     def status(self):
         if not self.respond:
@@ -322,7 +328,11 @@ class FakeDevice:
 
 
 class DeviceAPI:
-    """IdealProAPI wired to a FakeDevice instead of TCP."""
+    """IdealProAPI wired to a FakeDevice instead of TCP.
+
+    Also tracks how many device interactions (reads/commands) are active at
+    the same time, so tests can prove that sessions never interleave.
+    """
 
     @staticmethod
     def build(device):
@@ -332,12 +342,34 @@ class DeviceAPI:
             def __init__(self):
                 super().__init__("fake-device")
                 self.device = device
+                self.active_calls = 0
+                self.max_active_calls = 0
+
+            def _enter(self):
+                self.active_calls += 1
+                self.max_active_calls = max(self.max_active_calls, self.active_calls)
+
+            async def _pause(self):
+                if self.device.delay:
+                    await _real_sleep(self.device.delay)
 
             async def _handshake_and_read(self, timeout=2.0):
-                return self.device.status()
+                self._enter()
+                try:
+                    if self.device.status_event is not None:
+                        self.device.status_event.set()
+                    await self._pause()
+                    return self.device.status()
+                finally:
+                    self.active_calls -= 1
 
             async def _execute(self, command):
-                self.device.execute(command.decode())
+                self._enter()
+                try:
+                    await self._pause()
+                    self.device.execute(command.decode())
+                finally:
+                    self.active_calls -= 1
 
         return _DeviceAPI()
 
